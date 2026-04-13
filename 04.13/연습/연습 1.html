@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>예시</title>
+    <title>연습1</title>
 </head>
 <body>
     <h1 id="title">주문 대기 중</h1>
@@ -12,12 +12,10 @@
     <button onclick="order('카페라떼', 4500)">카페라떼</button>
     <button onclick="order('딸기 주스', 3000)">딸기 주스</button>
     <button onclick="order('민트 초코', 4500)">민트 초코</button>
-    <button onclick="order('초코쉐이크', 5500)">초코 쉐이크</button>
     <button id="reset-btn">초기화</button>
-    <button id="discount-btn">500원 할인</button>
-    <button id="free-btn"> 전체무료</button>
-    <!-- <button onclick="order('아메리카노 곱빼기', 3000 * 2)" >곱빼기 주문</button> -->
-    <button id="double-btn">곱빼기 주문</button>
+    <button id="dc-btn">500원 할인</button>
+    <button id="free-btn">전체무료</button>
+    <button onclick="order('아메리카노 곱빼기', 3000 * 2)">곱빼기 주문</button>
 
     <script>
         let total = 0;
@@ -26,15 +24,14 @@
         const priceTag = document.querySelector("#price-info");
 
         const order = (name, price) => {
-            total = total + price ;
-            title.textContent = `${name}주문완료!`;
+            total = total + price;
+            title.textContent = `${name}주문완료`;
             priceTag.textContent = `현재 총액은 ${total}원 입니다.`;
 
-        console.log(`주문 내역: ${name} / 누적금액: ${total}`);   
+        console.log(`주문 내역: ${name} / 누적금액: ${total}`);    
         };
 
-        // 리셋버튼
-        const resetBtn = document.querySelector('#reset-btn');
+        const resetBtn = document.querySelector("#reset-btn");
 
         resetBtn.onclick = () => {
             total = 0;
@@ -42,38 +39,30 @@
             priceTag.textContent = "현재 가격: 0원";
             console.log("초기화 완료!");
         };
-        // 가격할인
-        const discountBtn = document.querySelector('#discount-btn');
 
-        discountBtn.onclick = () => {
+        const dcBtn = document.querySelector('#dc-btn');
+
+        dcBtn.onclick = () => {
             total = total - 500;
             priceTag.textContent = `현재 총액은 ${total}원 입니다.`;
 
             console.log(`할인적용! 현재총액 ${total}`);
-        };
-        // 공짜
-        const freeBtn = document.querySelector('#free-btn');
+        }
+
+        const freeBtn = document.querySelector("#free-btn");
 
         freeBtn.onclick = () => {
             total = 0;
-            title.textContent = "사장님이 쏩니다!";
+            title.textContent = "사장님이 쏩니다.";
             priceTag.textContent = `현재총액: ${total}원`;
+
             console.log("무료 이벤트 실행!");
         };
-        // 곱빼기
-        // const orderDouble = (name, price) => {
-        //     total = total + (price * 2);
-        //     title.textContent = `${name} (곱빼기) 주문완료!`;
-        //     priceTag.textContent = `현재 총액은 ${total}원 입니다.`;
-        // };
 
-        const doubleBtn = document.querySelector('#double-btn');
-
-        doubleBtn.onclick = () => {
-            total = total * 2;
+        const orderDouble = (name, price) => {
+            total = total + (price * 2);
             title.textContent = `${name} (곱빼기) 주문완료!`;
             priceTag.textContent = `현재 총액은 ${total}원 입니다.`;
-            console.log("곱빼기 주문완료!")
         };
     </script>
 </body>
