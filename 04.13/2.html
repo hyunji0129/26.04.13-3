@@ -16,9 +16,8 @@
     <button id="reset-btn">초기화</button>
     <button id="discount-btn">500원 할인</button>
     <button id="free-btn"> 전체무료</button>
-    <button ></button>
-    <!-- <button onclick="order('아메리카노 곱빼기', 3000 * 2)">곱배기 주문</button>    -->
-
+    <!-- <button onclick="order('아메리카노 곱빼기', 3000 * 2)" >곱빼기 주문</button> -->
+    <button id="double-btn">곱빼기 주문</button>
 
     <script>
         let total = 0;
@@ -35,33 +34,47 @@
 
         };
 
+        // 리셋버튼
         const resetBtn = document.querySelector('#reset-btn');
 
         resetBtn.onclick = () => {
-            total= 0;
-            title.textContent = "주문 대기중"
-            priceTag.textContent = "현재 가격: 0원"
+            total = 0;
+            title.textContent = "주문 대기중";
+            priceTag.textContent = "현재 가격: 0원";
             console.log("초기화 완료!");
         };
-
+        // 가격할인
         const discountBtn = document.querySelector('#discount-btn');
+
         discountBtn.onclick = () => {
             total = total - 500;
             priceTag.textContent = `현재 총액은 ${total}원 입니다.`;
 
             console.log(`할인적용! 현재총액 ${total}`);
         };
-
+        // 공짜
         const freeBtn = document.querySelector('#free-btn');
 
         freeBtn.onclick = () => {
             total = 0;
-            title.textContent = "사장님이 쏩니다!"
+            title.textContent = "사장님이 쏩니다!";
             priceTag.textContent = `현재총액: ${total}원`;
             console.log("무료 이벤트 실행!");
         };
+        // 곱빼기
+        // const orderDouble = (name, price) => {
+        //     total = total + (price * 2);
+        //     title.textContent = `${name} (곱빼기) 주문완료!`;
+        //     priceTag.textContent = `현재 총액은 ${total}원 입니다.`;
+        // };
 
-        const orderDouble = 
+        const doubleBtn = document.querySelector('#double-btn');
+
+        doubleBtn.onclick = () => {
+            total = total * 2;
+            title.textContent = `${name} (곱빼기) 주문완료!`;
+            priceTag.textContent = `현재 총액은 ${total}원 입니다.`;
+        }
     </script>
 </body>
 </html>

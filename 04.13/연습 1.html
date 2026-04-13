@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습1</title>
+</head>
+<body>
+    <h1 id="title">주문 대기 중</h1>
+    <p id="price-info">현재 가격: 0원</p>
+    <button onclick="order('아메리카노', 3000)">아메리카노</button>
+    <button onclick="order('카페라떼', 4500)">카페라떼</button>
+    <button onclick="order('딸기 주스', 5000)">딸기 주스</button>
+    <button onclick="order('민트 초코', 5500)">민트 초코</button>
+    <button id="reset-btn">초기화</button>
+
+    <script>
+        let total = 0;
+
+        const title = document.querySelector("#title");
+        const priceTag = document.querySelector("#price-info");
+
+        const order = (name, price) => {
+            total = total + price;
+            title.textContent = `${name}주문완료`;
+            priceTag.textContent = `현재 총액은 ${total}원 입니다.`;
+
+        console.log(`주문 내역: ${name} / 누적금액: ${total}`);    
+        };
+
+        const resetBtn = document.querySelector("#reset-btn");
+
+        resetBtn.onclick = () => {
+            total = 0;
+            title.textContent = "주문 대기중"
+            priceTag.textContent = "현재 가격: 0원"
+            console.log("초기화 완료!");
+        };
+    </script>
+</body>
+</html>
