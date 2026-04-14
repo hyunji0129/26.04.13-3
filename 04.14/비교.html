@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비교</title>
+</head>
+<body>
+    <!-- <h1>오늘 날씨가 좋아요~ 산책 가세요!</h1>
+
+    <script>
+        const user = "강다희";
+        const choco = "초코쉐이크";
+        const price = 5500;
+
+        const oldWay =
+            user + "님," + choco + "주문완료! 가격은" + price + "원 입니다.";
+
+        const newWay = `${user}님, ${choco} 주문 완료! 가격은 ${price}입니다.`;    
+
+        console.log("옛날방식");
+        console.log(oldWay);
+
+        console.log("요즘방식");
+        console.log(newWay);
+    </script> -->
+
+    <h1 id="result">숫자를 입력하세요</h1>
+    <button id="btn">계산하기</button>
+
+
+
+    <script>
+        function aldAdd(a, b) {
+            return a + b;
+        } 
+
+        const newAdd = (a, b) => a + b;
+
+        const sayHello = () => alert("환영해요");
+
+        const btn = document.querySelector("#btn");
+        btn.onclick = () => {
+            const sum = newAdd(10,20);
+            document.querySelector("#result").textContent =`결과: ${sum}`;
+            sayHello();
+        }
+    </script>
+</body>
+</html>

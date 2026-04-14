@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자</title>
+</head>
+<body>
+    <h1 id="menu-name">메뉴: -</h1>
+    <h1 id="count-display">수량: 0</h1>
+    <button id="add-btn">수량 증가</button>
+
+    <script>
+        const menu = {
+            name: "아메리카노",
+            price: 3000
+        };
+
+        let count = 0;
+
+        const addBtn = document.querySelector("#add-btn");
+        const countDisplay = document.querySelector("#count-display");
+        const menuDisplay = document.querySelector("#menu-name");
+
+        menuDisplay.textContent = `메뉴: ${menu.name}`;
+
+        addBtn.onclick = () => {
+            count++;
+            countDisplay.textContent = `수량: ${count}`;
+
+            console.log(`현재 선택한 ${menu.name} 수량은 ${count}`);
+        }
+    </script>
+</body>
+</html>
