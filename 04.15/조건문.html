@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문</title>
+</head>
+<body>
+    <h1>콘솔 보기: </h1>
+
+    <script>
+        // if조건문
+        // if(표현식) {
+        //     참일때 실행할 문장
+        // }
+
+        // if (300 < 100) {
+        //     alert('300 < 100 => true')
+        // }
+
+        // alert('종료합니다')
+
+        // const date = new Date()
+        // const hour = date.getHours()
+
+        // if (hour < 12) {
+        //     alert('오전');
+        // }
+
+        // if (hour >= 12) {
+        //     alert('오후입니다')
+        // }
+
+        // const date = new Date()
+        // const hour = date.getHours()
+
+        // if (hour < 12) {
+        //     alert('오전')
+        // } else{
+        //     alert('오후')
+        // }
+
+        // switch (자료) {
+        //     case A:
+        //         break
+        //     case B:    
+        //         break
+        // }
+
+        const input = Number(prompt('숫자를 입력하세요','숫자'))
+
+        switch (input % 2){
+            case 0:
+                alert('짝수');
+                break;
+
+            case 1:
+                alert('홀수');
+                break;
+
+            default:
+                alert('숫자가 아닙니다');
+                break;
+        }
+          
+    </script>
+</body>
+</html>

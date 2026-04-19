@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문 연습</title>
+</head>
+<body>
+    <h1>비밀번호 강도 체크</h1>
+    <input type="password" id="pw" placeholder="비밀번호입력">
+    <p id="pw=msg"></p>
+
+    <script>
+        const pw = document.querySelector('#pw');
+        const msg = document.querySelector('#pw-msg');
+
+        pw.addEventListener("input", () => {
+            const value = pw.value;
+
+            if (value.length === 0) {
+                msg.textContent = "";
+            }
+        })
+    </script>
+</body>
+</html>
