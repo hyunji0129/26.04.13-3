@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 연산자</title>
+</head>
+<body>
+    <script>
+        // if(불 표현식) {
+        //     참 일 경우 실행해라
+        // }
+
+        // if(237 < 100){
+        //     alert('273 < 100 => true')
+        // }
+
+        // alert('종료')
+
+        // const date = new Date()
+        // const hour = date.getHours()
+
+        // if(hour < 12){
+        //     alert('오전')
+        // }
+
+        // if(hour >= 12){
+        //     alert('오후')
+        // }
+
+        // if(불 표현식){
+        //     참일때 실행
+        // } else{
+        //     거짓일때 실행
+        // }
+
+        // const date = new Date()
+        // const hour = date. getHours()
+
+        // if(hour < 12){
+        //     alert('오전')
+        // }else {
+        //    alert('오후')
+        // }
+
+        const date = new Date()
+        const hour = date.getHours()
+
+        if(hour < 11){
+            // hour < 11 참일때
+            alert('아침먹자')
+        } else{
+            if(hour < 15){
+                // hour < 11거짓, hour < 15 참
+                alert('점심먹자')
+            } else{
+                // hour < 15거짓 
+                alert('저녁먹자')
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
