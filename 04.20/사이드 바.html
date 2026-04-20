@@ -4,8 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사이드바</title>
+    <style>
+        #sidebar{
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background: #333;
+            color: aliceblue;
+            transition: 0.3s;
+            z-index: 100;
+        }
+
+        #sidebar.active{
+            left: 0;
+        }
+
+        #overlay{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0000006b;
+            display: none;
+            z-index: 50;
+        }
+
+        #overlay.active{
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    
+    <button id="menu-btn">메뉴 열기</button>
+    <div class="overlay"></div>
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+        const menuBtn =  document.querySelector("#menu-btn");
+        const sidebar = document.querySelector("#siderbar");
+        const overlay = document.querySelector("#overlay");
+
+        menuBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("active");
+            overlay.classList.toggle("active");
+        })
+    </script>
+
 </body>
 </html>
