@@ -24,14 +24,15 @@
 
         document.querySelector("input").addEventListener("input", (e)=> {
             const lengh = e.target.value.lengh;
+
             changeBox(length);
 
             if(lengh === 0) {
-                setTimeout( ()=> {})
+                setTimeout( () => {
+                    document.querySelector("box").style.backgroundColor = "white";
+                },2000);
             }
-
-            document.querySelector("box").style.backgroundColor = "white";
-        })
+        });
     </script>
 
     dom요소 선택
