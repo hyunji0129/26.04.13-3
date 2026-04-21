@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 종류</title>
+</head>
+<body>
+    <!-- <button onclick="hello()">인사하기</button>
+
+    <script>
+        function hello() {
+            alert("안녕");
+        }
+    </script> -->
+
+    <!-- <button id="anon-btn">익명함수 실행</button>
+
+    <script>
+        const showLog = function () {
+            console.log("이름이 없지만 변수 통해 실행된다.");
+        };
+
+        document.querySelector("#anon-btn").addEventListener("click", showLog);
+    </script> -->
+
+<!-- 콜백 함수 -->
+    <!-- <button onclick="process(alertMsg)">결재하기</button>
+
+    <script>
+        function alertMsg() {
+            alert("결재완료");
+        }
+
+        function process(callback) {
+            console.log("처리중....")
+            callback();
+        }
+    </script> -->
+
+<!-- 화살표 함수 -->
+    <!-- <p>5 + 10 = <span id="result"> ? </span></p>
+
+    <script>
+        const add = (a, b) => a + b;
+        const resultEl = document.querySelector("#result");
+        const sum = add(5, 10);
+        resultEl.textContent = sum;
+    </script> -->
+
+    <div id="timer-box" style="background: green;">
+        3초 뒤에 사라짐
+    </div>
+
+    <script>
+        setTimeout(() => {
+            const boxE1 = document.querySelector("#timer-box");
+            boxE1.style.display = "none";
+        }, 3000)
+    </script>
+</body>
+</html>

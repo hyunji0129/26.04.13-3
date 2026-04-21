@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제</title>
+    <style>
+        .field {
+            margin: 20px;
+        }
+
+        .info{
+            font-size: 12px;
+            color: #888;
+        }
+        .error{
+            color: red;
+        }
+        .success{
+            color: green;
+        }
+        input{ 
+            padding: 8px;
+            border:  1px solid #ccc;
+        }
+        input.invalidP{
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="field">
+        <label>아이디(4자 이상)</label><br>
+
+        <input type="text" id="uid" placeholder="아이디 입력">
+        <div id="uid-msg" class="info"></div>
+        <div class="field">
+            <button id="join-btn">가입신청</button>
+        </div>
+    </div>
+
+    <script>
+        function validateID(text) {
+            return text.length >= 4;
+        }
+
+        const updateUI = (isValid) => {
+            const msgEl = document.querySelector("#uid-msg");
+            const inputEl = document.querySelector("#uid");
+
+            if (isValid) {
+                msgEl.textContent = "사용가능";
+                msgEl.className = "info success";
+                inputEl.classList.remove("invalid");
+            }else {
+                msgEl.textContent = "4글자 이상 입력해 주세요";
+                msgE1.className = "info error";
+                inputEl.classList.add("invalid");
+            }
+        };
+
+        document.querySelector("#uid").addEventListener("input", (e) => {
+            const currentText = e.target.value;
+            const result = validateId(currentText);
+            updateUI(result);
+        });
+
+        document.querySelector("#join-btn").addEventListener("click", () => {
+            alert("잠시 기다려...");
+            
+            setTimeout(() => {
+                alert("가입완료");
+            }, 1500);
+        })
+    </script>
+</body>
+</html>

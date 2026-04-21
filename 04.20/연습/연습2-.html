@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>사이드바</title>
+    <title>연습 2</title>
     <style>
         #sidebar{
             position: fixed;
@@ -12,26 +12,23 @@
             width: 250px;
             height: 100%;
             background: #333;
-            color: aliceblue;
+            color: #fff;
             transition: 0.3s;
             z-index: 100;
         }
-
         #sidebar.active{
             left: 0;
         }
-
         #overlay{
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: #0000006b;
+            background: #00000067;
             display: none;
             z-index: 50;
         }
-
         #overlay.active{
             display: block;
         }
@@ -51,7 +48,7 @@
     </div>
 
     <script>
-        const menuBtn =  document.querySelector("#menu-btn");
+        const menuBar = document.querySelector("#menu-btn");
         const sidebar = document.querySelector("#sidebar");
         const overlay = document.querySelector("#overlay");
 
@@ -69,9 +66,8 @@
         overlay.addEventListener("click", () => {
             sidebar.classList.remove("active");
             overlay.classList.remove("active");
-            menuBtn.textContent = "메뉴 열기";
+            menuBtn.textContent = "메뉴열기";
         });
     </script>
-
 </body>
 </html>
