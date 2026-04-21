@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,25 +10,30 @@
             margin: 20px;
         }
 
-        .info{
+        .info {
             font-size: 12px;
             color: #888;
         }
-        .error{
+
+        .error {
             color: red;
         }
-        .success{
+
+        .success {
             color: green;
         }
-        input{ 
+
+        input {
             padding: 8px;
-            border:  1px solid #ccc;
+            border: 1px solid #ccc;
         }
-        input.invalidP{
+
+        input.invalidP {
             border-color: red;
         }
     </style>
 </head>
+
 <body>
 
     <div class="field">
@@ -53,9 +59,9 @@
                 msgEl.textContent = "사용가능";
                 msgEl.className = "info success";
                 inputEl.classList.remove("invalid");
-            }else {
+            } else {
                 msgEl.textContent = "4글자 이상 입력해 주세요";
-                msgE1.className = "info error";
+                msgEl.className = "info error";
                 inputEl.classList.add("invalid");
             }
         };
@@ -68,11 +74,12 @@
 
         document.querySelector("#join-btn").addEventListener("click", () => {
             alert("잠시 기다려...");
-            
+
             setTimeout(() => {
                 alert("가입완료");
             }, 1500);
         });
     </script>
 </body>
+
 </html>

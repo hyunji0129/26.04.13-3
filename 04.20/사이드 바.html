@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사이드바</title>
     <style>
-        #sidebar{
+        #sidebar {
             position: fixed;
             top: 0;
             left: -250px;
@@ -17,11 +18,11 @@
             z-index: 100;
         }
 
-        #sidebar.active{
+        #sidebar.active {
             left: 0;
         }
 
-        #overlay{
+        #overlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -32,11 +33,12 @@
             z-index: 50;
         }
 
-        #overlay.active{
+        #overlay.active {
             display: block;
         }
     </style>
 </head>
+
 <body>
     <button id="menu-btn">메뉴 열기</button>
     <div id="overlay"></div>
@@ -51,7 +53,7 @@
     </div>
 
     <script>
-        const menuBtn =  document.querySelector("#menu-btn");
+        const menuBtn = document.querySelector("#menu-btn");
         const sidebar = document.querySelector("#sidebar");
         const overlay = document.querySelector("#overlay");
 
@@ -74,4 +76,5 @@
     </script>
 
 </body>
+
 </html>

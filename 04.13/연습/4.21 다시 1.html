@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이해하기</title>
+</head>
+<body>
+    <h1 id="title">주문 대기 중</h1>
+    <p id="price-info">현재 가격: 0원</p>
+    <button onclick="order('아메리카노', 3000)">아메리카노</button>
+    <button onclick="order('카페라떼', 4500)">카페라떼</button>
+    <button onclick="order('딸기 주스', 5000)">딸기 주스</button>
+    <button id="free-btn">전체무료</button>
+    <button id="discount-btn">500원 할인적용</button>
+
+    <script>
+        let total = 0;
+
+        const title = document.querySelector("#title");
+        const priceTag = document.querySelector("#price-info");
+
+        const order = (name, price) => {
+            total = total + price;
+            title.textContent = `${name} 주문완료!`;
+            priceTag.textContent = `현재 총액은 ${total} 원 입니다.`;
+            
+            console.log(`주문 내역: ${name} / 누적금액: ${total}`);
+        };
+
+        const freeBtn = document.querySelector("#free-btn");
+
+        freeBtn.onclick = () => {
+            total = 0;
+            title.textContent = `사장님이 쏩니다!!`
+            priceTag.textContent = `현재 총액: ${total}원`;
+
+            console.log(`무료이벤트 실행!`);
+        }
+
+        const discountBtn = document.querySelector("#discount-btn");
+
+        discountBtn.onclick = () => {
+            total = total - 500;
+            title.document = `할인이벤트`
+            priceTag.textContent = `현재 총액은 ${total}입니다.`
+
+            console.log(`할인 적용! 총액 ${total}원 입니다.`)
+        }
+    </script>
+</body>
+</html>

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>예시</title>
 </head>
+
 <body>
     <h1 id="title">주문 대기 중</h1>
     <p id="price-info">현재 가격: 0원</p>
@@ -26,11 +28,11 @@
         const priceTag = document.querySelector("#price-info");
 
         const order = (name, price) => {
-            total = total + price ;
+            total = total + price;
             title.textContent = `${name}주문완료!`;
             priceTag.textContent = `현재 총액은 ${total}원 입니다.`;
 
-        console.log(`주문 내역: ${name} / 누적금액: ${total}`);   
+            console.log(`주문 내역: ${name} / 누적금액: ${total}`);
         };
 
         // 리셋버튼
@@ -77,4 +79,5 @@
         };
     </script>
 </body>
+
 </html>

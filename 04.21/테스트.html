@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>테스트</title>
 </head>
+
 <body>
     <h1>입력창😊</h1>
     <p class="info">글자 입력 상자색 바뀜</p>
@@ -15,22 +17,22 @@
         function changeBox(len) {
             const box = document.querySelector("#box");
 
-            if(len >= 10) {
+            if (len >= 10) {
                 box.style.backgroundColor = "skybule";
-            } else if(len >= 5) {
+            } else if (len >= 5) {
                 box.style.backgroundColor = "pink";
             }
-        }
+        };
 
-        document.querySelector("input").addEventListener("input", (e)=> {
+        document.querySelector("#magic-input").addEventListener("input", (e) => {
             const lengh = e.target.value.lengh;
 
             changeBox(length);
 
-            if(lengh === 0) {
-                setTimeout( () => {
+            if (lengh === 0) {
+                setTimeout(() => {
                     document.querySelector("box").style.backgroundColor = "white";
-                },2000);
+                }, 2000);
             }
         });
     </script>
@@ -40,4 +42,5 @@
     이벤트리스너 -> input이벤트:글자가 입력될때마다 실행
     타이머 처리
 </body>
+
 </html>
