@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀘스트</title>
+    <style>
+        body{
+            font-family: sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        #box{
+            width: 300px;
+            height: 100px;
+            margin: 20px auto;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            transition: all 0.5s;
+        }
+
+        input{
+            padding: 10px;
+            width: 280px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #aaa;
+        }
+
+        .info{
+            color: #666;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>입력창😊</h1>
+    <p class="info">글자 입력 상자색 바뀜</p>
+    <input type="text" id="magic-input" placeholder="글자 쓰세요">
+    <div id="box">준비중...</div>
+
+    <script>
+        const inputEl = document.querySelector("#magic-input");
+        const boxEl = document.querySelector("#box");
+
+        function updateBox(len) {
+
+            if (len >= 10){
+                boxEl.style.backgroundColor = "skyblue";
+                boxEl.textContent = "10글자 이상입니다.";
+            } else if (len >= 5){
+                boxEl.style.backgroundColor = "pink";
+                boxEl.textContent = "좋아요. 5글자 이상!";
+            } else if (len > 0){
+                boxEl.style.backgroundColor = "blue";
+                boxEl.textContent = "좀만 더!!";
+            }
+        };
+
+        inputEl = addEventListener("input", (e) => {
+            const currentLength = e.target.value.length;
+            updateBox(currentLength);
+        })
+
+        if (currentLength === 0) {
+            boxEl.textContent = "지워졌어요.2초 뒤에 리셋";
+
+            setTimeout(() => {
+
+                if (inputEl.value.length === 0) {
+                    boxEl.style.backgroundColor = "blue";
+                    boxEl.textContent = "준비중...";
+                }
+            },2000);
+        };
+      
+    </script>
+</body>
+
+</html>

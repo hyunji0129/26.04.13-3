@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>복습</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .loading{
+            background: green;
+            color: #fff;
+        }
+
+        .done{
+            background: rgb(0, 23, 128);
+            color: #fff;
+        }
+
+        #box{
+            width: 300px;
+            height: 100px;
+            border:  2px solid #ccc;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <h1>💳결제 처리 시스템</h1>
+    <button id="pay-btn">결제하기</button>
+    <div id="box">대기중...</div>
+
+    <script>
+        const btn = document.querySelector("#pay-btn");
+        const box = document.querySelector("#box");
+
+        function onComplete() {
+            box.textContent = "결제 완료";
+            box.className = "done";
+        }
+
+        function process(callback) {
+            box.textContent = "결제 처리중";
+            box.className = "loading";
+
+            setTimeout(() =>{
+                callback();
+            },2000);
+        };
+
+        btn.addEventListener("click", () => {
+            process(onComplete);
+        });
+        
+
+    </script>
+</body>
+</html>
