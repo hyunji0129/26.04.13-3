@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모달창</title>
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+        #modal-bg{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #00000036;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #modal-bg.active{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <h1>모달창 만들기</h1>
+    <button id="open-btn">모달 열기</button>
+    <div id="modal-bg">
+        <div id="modal-content">
+            <h2>모달창입니다.</h2>
+            <p>여기를 클릭하면 안 닫힘</p>
+
+            <button id="close-btn">닫기</button>
+        </div>
+    </div>
+
+    <script>
+        const openBtn = document.querySelector("#open-btn");
+        const closeBtn = document.querySelector("#close-btn");
+        const modalBg = document.querySelector("#modal-bg");
+        const modalContent = document.querySelector("#modal-content");
+
+        openBtn.addEventListener("click", () => {
+            modalBg.classList.add("active");
+        });
+
+        modalBg.addEventListener("click",() => {
+            modalBg.classList.remove("active");
+        });
+
+        modalContent.addEventListener("click", (e) => {
+            e.stopPropagation();
+        });
+
+        closeBtn.addEventListener("click", () => {
+            modalBg.classList.remove("active");
+        })
+    </script>
+</body>
+</html>
