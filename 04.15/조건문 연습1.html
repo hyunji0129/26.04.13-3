@@ -8,7 +8,7 @@
 <body>
     <h1>비밀번호 강도 체크</h1>
     <input type="password" id="pw" placeholder="비밀번호입력">
-    <p id="pw=msg"></p>
+    <p id="pw-msg"></p>
 
     <script>
         const pw = document.querySelector('#pw');
@@ -19,6 +19,15 @@
 
             if (value.length === 0) {
                 msg.textContent = "";
+            } else if(value.length < 6) {
+                msg.textContent = "짧다";
+                msg.style.color = "red";
+            }else if(value.length < 10) {
+                msg.textContent = "적당";
+                msg.style.color = "blue";
+            }else{
+                msg.textContent = "안전";
+                msg.style.color = "green";
             }
         });
     </script>
