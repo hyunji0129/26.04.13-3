@@ -184,7 +184,7 @@
         </div>
         <button class="btn-join" id="join-btn" disabled>가입신청</button>
     </div>    
-    <div id="toast" class="toast">가입신청완료</div> 
+    <div id="toast" class="toast">가입신청완료🧡</div> 
     
     <script>
         function validateId(val) {
@@ -228,7 +228,10 @@
         //강도바 색상 변경
         function updateStrengthBar(level){
             const color = ["#eee","pink","skyblue","blue"];
-            const bars = [document.querySelector("#s1"),("#s2"),("#s3"),("#s4")];
+            const bars = [document.querySelector("#s1"),document.querySelector("#s2"),document.querySelector("#s3"),document.querySelector("#s4")];
+            bars.forEach((bar, i) => {
+                bar.style.background = i < level ? color[level] : "eee";
+            });
         }
 
     </script>
