@@ -276,10 +276,12 @@
                 const toast = document.querySelector("#toast");
                 toast.classList.add("show");
 
-                this.textContent - "가입완료";
+                this.textContent = "가입완료";
                 this.style.background = "green"
 
-                setTimeout(() => toast.classList.remove("show"),3000);
+                setTimeout(() => { 
+                    toast.classList.remove("show");
+                },3000);
             },1500);
         });
     </script>
