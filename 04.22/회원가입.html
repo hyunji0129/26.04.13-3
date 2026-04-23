@@ -228,12 +228,60 @@
         //강도바 색상 변경
         function updateStrengthBar(level){
             const color = ["#eee","pink","skyblue","blue"];
-            const bars = [document.querySelector("#s1"),document.querySelector("#s2"),document.querySelector("#s3"),document.querySelector("#s4")];
+            const bars = [document.querySelector("#s1"),document.querySelector("#s2"),document.querySelector("#s3")];
             bars.forEach((bar, i) => {
-                bar.style.background = i < level ? color[level] : "eee";
+                bar.style.background = i < level ? color[level] : "#eee";
             });
         }
+        
 
+        //전체 유효성 체크 및 버튼 제어
+        function checkAll() {
+            const idVal = document.querySelector("#uid").value;
+            const pwVal = document.querySelector("#pw").value;
+            const pw2Val = document.querySelector("#pw2").value;
+
+            const isAllOk = validateId(idVal).ok && validatePw(pwVal).ok && validatePw2(pwVal, pw2Val).ok;
+            document.querySelector("#join-btn").disabled = !isAllOk;
+        }
+
+        //사용자 이벤트 바인딩(event Listeners)
+
+        //아이디 입력
+        document.querySelector("#uid").addEventListener("input", (e) => {
+            const res = validateId(e.target.value);
+            updateUI(document.querySelector("#uid"), document.querySelector("#uid-msg"), res);
+            checkAll();
+        });
+
+        //비밀번호
+        document.querySelector("#pw").addEventListener("input", (e) => {
+            const res = validatePw(e.target.value);
+            updateUI(document.querySelector("#pw"),document.querySelector("#pw-msg"), res);
+            updateStrengthBar(res.level);
+       
+        //비번 바뀔때 확인칸도 동기화해서 검사
+        const pw2El = document.querySelector("#pw2");
+        const res2 = validatePw2(e.target.value, pw2El.value);
+        updateUI(pw2El, document.querySelector("#pw2-msg"), res2);
+        checkAll();
+        });
+
+        //가입처리
+        document.querySelector("#join-btn").addEventListener("click", function(){
+            this.disabled = true;
+            this.textContent = "처리중..";
+
+            setTimeout(() => {
+                const toast = document.querySelector("#toast");
+                toast.classList.add("show");
+
+                this.textContent - "가입완료";
+                this.style.background = "green"
+
+                setTimeout(() => toast.classList.remove("show"),3000);
+            },1500);
+        });
     </script>
 </body>
 </html>
