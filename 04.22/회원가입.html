@@ -71,11 +71,11 @@
         }
         input.invalid{
             border-color: rgb(201, 71, 71);
-            background: #aaa;
+            background: #ddd;
         }
         input.valid{
             border-color: rgb(63, 223, 63);
-            background: #aaa;
+            background: #ddd;
         }
 
         .msg{
@@ -150,7 +150,7 @@
         }
         .toast.show{
             opacity: 1;
-            transform: translateX(-50%), translateY(0);
+            transform: translateX(-50%) translateY(0);
         }
 
     </style>
@@ -190,7 +190,7 @@
         function validateId(val) {
             if ( val.length === 0) return {ok: null, msg:""};
             if ( val.length < 4)return {ok: false, msg: "4자 이상 입력하세요"};
-            if (!/^[a-zA-Z0-9]+$/.test(value)) return {ok: false, msg: "영문과 숫자만 사용 가능합니다."};
+            if (!/^[a-zA-Z0-9]+$/.test(val)) return {ok: false, msg: "영문과 숫자만 사용 가능합니다."};
             return {ok: true, msg: "사용 가능한 아이디예요"};
         }
 
@@ -201,12 +201,15 @@
             let level = 1;
             if (/[0-9]/.test(val)) level++;
             if (/[!@#$%^&*]/.test(val)) level++;
+
+            const labels = ["","보안 취약","적정 수준", "강력함"];
+            return { ok: true, msg: `비밀번호 강도: ${labels[level]}`, level};
         }
 
         function validatePw2(p1, p2) {
             if (p2.length === 0) return{ ok: null, msg:""};
-            if (p1 !== p2) return{ ok:false, msg: "비밀번호 일치하지 않습니다."}
-            return { ok: true, msg: "비밀번호 맞아요!"}
+            if (p1 !== p2) return{ ok:false, msg: "비밀번호가 일치하지 않습니다."}
+            return { ok: true, msg: "비밀번호 맞아요!"};
         }
 
         //화면 업데이트 로직, 검증결과 반영
@@ -218,12 +221,12 @@
                 msgEl.textContent ="";
                 return;
             }
-        }
-
+        
         //상태에 따른 클래스,메세지
         inputEl.className = res.ok ? "valid" : "invalid";
         msgEl.className = res.ok ? "msg success": "msg error"; 
         msgEl.textContent = res.msg;
+        }
 
         //강도바 색상 변경
         function updateStrengthBar(level){
@@ -261,11 +264,17 @@
             updateStrengthBar(res.level);
        
         //비번 바뀔때 확인칸도 동기화해서 검사
-        const pw2El = document.querySelector("#pw2");
-        const res2 = validatePw2(e.target.value, pw2El.value);
-        updateUI(pw2El, document.querySelector("#pw2-msg"), res2);
-        checkAll();
+            const pw2El = document.querySelector("#pw2");
+            const res2 = validatePw2(e.target.value, pw2El.value);
+            updateUI(pw2El, document.querySelector("#pw2-msg"), res2);
+            checkAll();
         });
+
+        document.querySelector("#pw2").addEventListener("input", (e) => {
+            const res = validatePw2(document.querySelector("#pw").value, e.target.value);
+            updateUI(document.querySelector("#pw2"), document.querySelector("#pw2-msg"), res);
+            checkAll();
+        })
 
         //가입처리
         document.querySelector("#join-btn").addEventListener("click", function(){
@@ -279,9 +288,7 @@
                 this.textContent = "가입완료";
                 this.style.background = "green"
 
-                setTimeout(() => { 
-                    toast.classList.remove("show");
-                },3000);
+                setTimeout(() => toast.classList.remove("show"),3000);
             },1500);
         });
     </script>
