@@ -6,20 +6,30 @@
     <title>연습 1</title>
 </head>
 <body>
-    <h1>콘솔보기 : </h1>
+    <h1>비밀번호 강도 체크</h1>
+    <input type="password" id="pw" placeholder="비밀번호입력">
+    <p id="pw-msg"></p>
 
     <script>
-        function add1(a, b) {
-            return a + b;
-        }
+        const pw = document.querySelector("#pw");
+        const msg = document.querySelector("#pw-msg");
 
-        const add2 = (a, b) => a + b; 
-        console.log();
+        pw.addEventListener("input", () => {
+            const value = pw.value;
 
-        const add3 = (a, b) => {
-            return a+ b;
-        }
-
+            if (value.length === 0) {
+                msg.textContent = "";
+            }else if (value.length < 6) {
+                msg.textContent = "짧아요";
+                msg.style.color = "red";
+            }else if (value.length < 10) {
+                msg.textContent = "적당해요"
+                msg.style.color = "green";
+            }else {
+                msg.textContent = "안전해요";
+                msg.style.color = "blue";
+            }
+        });
     </script>
 </body>
 </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나이</title>
+</head>
+<body>
+    <h1>나이 제한</h1>
+    <input type="number" id="age" placeholder="나이입력">
+    <button id="check-btn">확인</button>
+    <p id="result"></p>
+
+    <script>
+        const ageInput = document.querySelector("#age");
+        const btn = document.querySelector("#check-btn");
+        const result = document.querySelector("#result");
+
+        btn.addEventListener("click", () => {
+            const age = Number(ageInput.value);
+
+            if (age >= 20){
+                result.textContent = "성인. 입장가능";
+                result.style.color = "blue"
+            }else if(age >= 14){
+                result.textContent = "청소년";
+            }else{
+                result.textContent = "집에 가세요";
+            }
+        });
+    </script>
+</body>
+</html>
