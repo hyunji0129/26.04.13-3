@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 가입</title>
+</head>
+
+<body>
+    <form id="signup-form">
+        <input type="email" id="email" placeholder="이메일 입력">
+        <p id="email-msg"></p>
+
+        <select id="job">
+            <option value="">직업을 선택하세요</option>
+            <option value="student">학생</option>
+            <option value="teacher">선생님</option>
+            <option value="developer">개발자</option>
+        </select>
+
+        <input type="checkbox" id="agree">이용약관 동의
+
+        <button type="submit" id="submit-btn" disabled>가입하기</button>
+    </form>
+
+    <script>
+        const form = document.querySelector("#signup-form");
+        const emailInput = document.querySelector("#email");
+        const agreeCheck = document.querySelector("#agree");
+        const submitBtn = document.querySelector("#submit-btn");
+
+        emailInput.addEventListener("input", (e) => {
+            const regExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const msg = document.querySelector("#email-msg");
+
+            if (regExp.test(e.target.value)) {
+                msg.textContent = "사용가능한 메일입니다.";
+                msg.style.color = "green";
+            }else {
+                msg.textContent = "잘못된 이메일 형식입니다.";
+                msg.style.color = "red";
+            }
+         });
+
+        agreeCheck.addEventListener("change", (e) => {
+            submitBtn.disabled = !e.target.checked;
+        });
+
+        document.addEventListener("contextmenu", (e) => {
+            e.preventDefault();
+
+            alert("우클릭방지");
+        });
+    </script>
+</body>
+
+</html>

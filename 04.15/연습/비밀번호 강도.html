@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비밀번호 강도</title>
+</head>
+<body>
+    <h1>비밀번호 강도 체크</h1>
+    <input type="password" id="pw" placeholder="비밀번호 입력">
+    <p id="pw-msg"></p>
+
+    <script>
+        const pw = document.querySelector("#pw");
+        const msg = document.querySelector("#pw-msg");
+
+        pw.addEventListener("input", () => {
+            const value = pw.value;
+
+            if(value.length === 0){
+                msg.textContent = "";
+            }else if(value.length < 6){
+                msg.textContent = "짧아요";
+                msg.style.color = "red";
+            }else if(value.length < 10){
+                msg.textContent = "적당해요";
+                msg.style.color = "green";
+            }else{
+                msg.textContent = "아주 안전해요";
+                msg.style.color = "blue";
+            }
+        });
+    </script>
+</body>
+</html>
