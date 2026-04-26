@@ -6,17 +6,16 @@
     <title>좋아요</title>
 </head>
 <body>
-    <button id="like">💕좋아요</button>
+    <button id="like">좋아요👌</button>
 
     <script>
         const like = document.querySelector("#like");
         like.addEventListener("click", () => {
             like.classList.toggle("active");
             like.textContent = like.classList.contains("active")
-            ? "💕좋아요 취소"
-            : "💕좋아요";
+            ?"좋아요 취소"
+            :"좋아요😍";
         });
-
     </script>
 </body>
 </html>

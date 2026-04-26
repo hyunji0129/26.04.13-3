@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습</title>
+</head>
+<body>
+    <form id="inpuiry-form">
+        <select name="projectType" id="project-type">
+            <option value="web">웹 사이트 제작</option>
+            <option value="design">UI디자인</option>
+        </select>
+
+        <input type="radio" name="budget" value="100"> 100만원 이하
+        <input type="radio" name="budget" value="500"> 500만원 이하
+
+        <textarea name="message" id="message" placeholder="상세 내용을 적어주세요"></textarea>
+
+        <button type="submit">의뢰보내기</button>
+    </form>
+
+    <script>
+        const form = document.querySelector("#inpuiry-form");
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            console.log("의뢰가 접수 되었습니다", data);
+            alert("접수완료");
+        });
+    </script>
+</body>
+</html>

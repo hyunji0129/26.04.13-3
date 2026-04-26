@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>모달창</title>
+    <title>모달 연습</title>
     <style>
         body{
             font-family: sans-serif;
         }
+
         #modal-bg{
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: #00000036;
+            background: #00000042;
             display: none;
             justify-content: center;
             align-items: center;
@@ -53,7 +54,7 @@
     <script>
         const openBtn = document.querySelector("#open-btn");
         const closeBtn = document.querySelector("#close-btn");
-        const modalBg = document.querySelector("#modal-bg");
+        const modalBg = document.querySelector("#modal-bg"); 
         const modalContent = document.querySelector("#modal-content");
 
         openBtn.addEventListener("click", () => {
@@ -71,6 +72,8 @@
         closeBtn.addEventListener("click", () => {
             modalBg.classList.remove("active");
         });
+        
     </script>
+
 </body>
 </html>

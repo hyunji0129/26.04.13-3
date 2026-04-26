@@ -23,10 +23,10 @@
             display: flex;
         }
         #modal-content{
-            background: wheat;
+            background: #fff;
             padding: 30px;
             border-radius: 10px;
-            width: 200px;
+            width: 300px;
             text-align: center;
         }
         button{
@@ -38,8 +38,8 @@
 <body>
     <h1>모달창 만들기</h1>
     <button id="open-btn">모달 열기</button>
-    <div class="modal-bg">
-        <div class="modal-content">
+    <div id="modal-bg">
+        <div id="modal-content">
             <h2>모달창입니다.</h2>
             <p>여기를 클릭하면 안닫힘</p>
             <button id="close-btn">닫기</button>
@@ -58,6 +58,14 @@
         modalBg.addEventListener("click", () => {
             modalBg.classList.remove("active");
         })
+
+        modalContent.addEventListener("click", (e) => {
+            e.stopPropagation();
+        });
+
+        closeBtn.addEventListener("click", () => {
+            modalBg.classList.remove("active");
+        });
     </script>
 </body>
 </html>
