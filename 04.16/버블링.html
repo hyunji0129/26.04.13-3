@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버블링</title>
+</head>
+<body>
+    <div id="parent">
+        부모
+        <button id="child">자식버튼</button>
+    </div>
+
+    <script>
+        document.querySelector("#parent").addEventListener("click", () => {
+            console.log("부모클릭");
+        });
+
+        document.querySelector("#child").addEventListener("click", () => {
+            console.log("자식클릭");
+            e.stopPropagation();
+        });
+    </script>
+</body>
+</html>
