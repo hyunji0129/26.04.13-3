@@ -4,8 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사이드 바</title>
+    <style>
+        #sidebar{
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background: #555;
+            color: #fff;
+            transition: 0.3s;
+            z-index: 100;
+        }
+
+        #sidebar.active{
+            left: 0;
+        }
+
+        #overlay{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: none;
+            z-index: 50;
+        }
+
+        #overlay.active{
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    
+    <button id="menu-btn">메뉴열기</button>
+    <div id="overlay"></div>
+    <div id="sidebar">
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+        const menuBtn = document.querySelector("#menu-btn");
+        const sidebar = document.querySelector("#sidebar");
+        const overlay = document.querySelector("#overlay");
+
+        menuBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("active");
+            overlay.classList.toggle("active");
+
+            if(sidebar.classList.contains("active")){
+                menuBtn.textContent = "메뉴닫기";
+            }else {
+                menuBtn.textContent = "메뉴열기";
+            }
+        });
+
+        overlay.addEventListener("click", () => {
+            sidebar.classList.remove("active");
+            overlay.classList.remove("active");
+            menuBtn.textContent = "메뉴열기";
+        });
+
+    </script>
 </body>
 </html>
