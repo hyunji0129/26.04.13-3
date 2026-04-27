@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑몰</title>
+</head>
+<body>
+    <script>
+        // const cart = ["신상 노트북", "아이패드", "에어팟"];
+
+        // cart.push("매직하우스");
+
+        // const target = "아이패드";
+        // const index = cart.indexOf(target);
+
+        // if (index !== -1) {
+        //     cart.splice(index, 1);
+        //     console.log(`${target}가 삭제 되었어요. 현재 장바구니: ${cart}`);
+        // }
+
+        const cart =["신상 노트북","아이패드","에어팟"];
+
+        cart.push("매직하우스");
+
+        const target = "아이패드";
+        const index = cart.indexOf(target);
+
+        if(index !== -1){
+            cart.splice(index, 1);
+            console.log(`${target}가 삭제 되었어요. 현재 장바구니: ${cart}`)
+        }
+
+
+
+    //    const cart = ['나이키 신발', '아디다스 바지', '뉴발란스 모자'];
+
+        // 1. 상품 추가
+        // cart.push('컨버스 스니커즈');
+
+        // 2. 삭제할 상품 지정
+        // const target = '아디다스 바지';
+
+        // 3. 상품 위치 찾기
+        // const index = cart.indexOf(target);
+
+        // 4. 상품이 존재하면 삭제
+        // if (index !== -1) {
+        // cart.splice(index, 1);
+        // console.log(`${target}이(가) 삭제되었습니다. 현재 장바구니: ${cart}`);
+        // }
+
+
+
+        // const cart = ['아이폰', '에어팟', '아이폰', '맥북', '아이폰'];
+
+        // // 삭제할 상품
+        // const target = '아이폰';
+
+        // // 위치 찾기
+        // let index = cart.indexOf(target);
+
+        // // 같은 상품이 존재하는 동안 반복
+        // while (index !== -1) {
+        // cart.splice(index, 1);  // 삭제
+        // index = cart.indexOf(target); // 다시 위치 찾기
+        // }
+
+        // console.log(`"${target}"이(가) 모두 삭제되었습니다. 현재 장바구니: ${cart}`);
+    </script>
+</body>
+</html>
