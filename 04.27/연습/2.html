@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const cart = ["노트북", "에어팟", "아이패드"];
+
+        cart.push("아이폰");
+
+        const target = "에어팟";
+        const index = cart.indexOf(target);
+
+        if(index !== -1){
+            cart.splice(index, 1);
+            console.log(`${target}이(가) 삭제 되었어요. 현재 장바구니: ${cart}`);
+        };
+    </script>
+    
+</body>
+</html>

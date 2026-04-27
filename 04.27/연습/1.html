@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            background: #fffbe6;
+        }
+
+        .menu-card{
+            background: #fff;
+            display: inline-block;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px #00000025;
+            border: 2px solid #ffd900;
+        }
+
+        h1{
+            color: #ff9900;
+            margin: 20px 0;
+            line-height: 2;
+        }
+        b{
+            color: #333;
+            text-decoration: underline;
+        }
+        .highlight{
+            color: #e67e22;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-card">
+        <!-- <h1>🍎오늘의 과일 식단🍇</h1>
+        <div class="info" id="display"></div> -->
+
+        <!-- <h1>🍰 오늘의 디저트</h1>
+        <div id="display"></div> -->
+
+        <h1>오늘의 점심🍜</h1>
+        <div id="display"></div>
+    </div>
+
+    <script>
+        // 과일
+        // const fruits = ["사과", "포도","딸기", "블루베리", "배 "];
+
+        // const firstFruit = fruits[0];
+        // const totalCount = fruits.length;
+        // const lastFruit = fruits[fruits.length - 1];
+
+        // const displayDiv = document.getElementById("display");
+
+        // displayDiv.innerHTML = `오늘 준비 된 과일은 <span class = "highlight">${totalCount}개</span> 입니다<br>
+        // 첫번째 메뉴: <b>${firstFruit}</b><br>
+        // 마지막 메뉴:<b>${lastFruit}</b>`;
+
+        // console.log("전체 과일리스트", fruits);
+
+        // 디저트
+        // const desserts = ["미니케이크", "마카롱", "버터떡", "푸딩", "두쫀쿠"];
+
+        // const firstDessert = desserts[0];
+        // const totalCount = desserts.length;
+        // const lastDessert = desserts[desserts.length - 1];
+
+        // const displayDiv = document.getElementById("display");
+
+        // displayDiv.innerHTML = `오늘 디저트 메뉴는 <span class = highlight>${totalCount}개</span>입니다.<br>
+        // 첫번째 메뉴:<b>${firstDessert}</b><br>
+        // 마지막 메뉴:<b>${lastDessert}</b>`;
+
+        // console.log("전체 디저트 메뉴", desserts);
+
+        // 점심
+        const lunchMenu = ["라면", "짬뽕", "햄버거", "쌀국수", "딤섬"]
+
+        const firstMenu = lunchMenu[0];
+        const totalCount = lunchMenu.length;
+        const lastMenu = lunchMenu[lunchMenu.length - 1];
+
+        const displayDiv = document.getElementById("display");
+
+        displayDiv.innerHTML = `오늘 점심 메뉴는<span class = highlight>${totalCount}개</span>입니다.<br>
+        첫번째 메뉴:<b>${firstMenu}</b><br>
+        마지막 메뉴<b>${lastMenu}</b>`
+
+        console.log("전체 점심 메뉴", lunchMenu);
+
+    </script>
+</body>
+</html>
