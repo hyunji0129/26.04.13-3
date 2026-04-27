@@ -7,17 +7,43 @@
 </head>
 <body>
     <script>
-        const cart = ["노트북", "에어팟", "아이패드"];
+        // const cart = ["노트북", "에어팟", "아이패드"];
 
-        cart.push("아이폰");
+        // cart.push("아이폰");
 
-        const target = "에어팟";
+        // const target = "에어팟";
+        // const index = cart.indexOf(target);
+
+        // if(index !== -1){
+        //     cart.splice(index, 1);
+        //     console.log(`${target}이(가) 삭제 되었어요. 현재 장바구니: ${cart}`);
+        // };
+
+
+        const cart = ["나이키 신발", "아디다스 바지", "뉴발란스 모자"];
+
+        cart.push("노스페이스 가방");
+
+        const target = "뉴발란스 모자";
         const index = cart.indexOf(target);
 
         if(index !== -1){
             cart.splice(index, 1);
-            console.log(`${target}이(가) 삭제 되었어요. 현재 장바구니: ${cart}`);
+            console.log(`${target}가 삭제 되었어요. 현재 장바구니 ${cart}`);
         };
+
+        // const cart =["아이폰", "에어팟", "아이폰", "맥북", "아이폰"];
+
+        // const target = "아이폰";
+
+        // let index = cart.indexOf(target);
+
+        // while(index !== -1){
+        //     cart.splice(index, 1);
+        //     index = cart.indexOf(target);
+        // };
+
+        // console.log(`${target}이(가) 모두 삭제 되었습니다. 현재 장바구니: ${cart}`);
     </script>
     
 </body>

@@ -62,24 +62,26 @@
                 boxEl.style.backgroundColor = "blue";
                 boxEl.textContent = "좀만 더!!";
             }
-        };
+        }
 
-        inputEl = addEventListener("input", (e) => {
+        inputEl.addEventListener("input", (e) => {
             const currentLength = e.target.value.length;
             updateBox(currentLength);
-        })
+        
 
-        if (currentLength === 0) {
-            boxEl.textContent = "지워졌어요.2초 뒤에 리셋";
+            if (currentLength === 0) {
+                boxEl.textContent = "지워졌어요.2초 뒤에 리셋";
+                boxEl.style.backgroundColor = "gray";
 
-            setTimeout(() => {
+                setTimeout(() => {
 
-                if (inputEl.value.length === 0) {
-                    boxEl.style.backgroundColor = "blue";
-                    boxEl.textContent = "준비중...";
-                }
-            },2000);
-        };
+                    if (inputEl.value.length === 0) {
+                        boxEl.style.backgroundColor = "white";
+                        boxEl.textContent = "준비중...";
+                    }
+                },2000);
+            }
+        });
       
     </script>
 </body>

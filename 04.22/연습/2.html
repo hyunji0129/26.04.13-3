@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: sans-serif;
+            background: #f0f2f5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 48px 40px;
+            width: 420px;
+            box-shadow: 0 4px 24px #00000057;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #111;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 32px;
+        }
+
+        .field {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #888;
+            margin-bottom: 6px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1.5px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input:focus {
+            border-color: rgb(22, 22, 173);
+        }
+
+        input.invalid {
+            border-color: rgb(201, 71, 71);
+            background: #ddd;
+        }
+
+        input.valid {
+            border-color: rgb(63, 223, 63);
+            background: #ddd;
+        }
+
+        .msg {
+            font-size: 12px;
+            margin-top: 5px;
+            min-height: 16px;
+            transition: color 0.2s;
+        }
+
+        .msg.error {
+            color: red;
+        }
+
+        .msg.success {
+            color: green;
+        }
+
+        .msg.info {
+            color: gray;
+        }
+
+        .strength-wrap {
+            margin-top: 8px;
+            display: flex;
+            gap: 5px;
+        }
+
+        .strength-bar {
+            height: 4px;
+            flex: 1;
+            border-radius: 99px;
+            background: #eee;
+            transition: background 0.3s;
+        }
+
+        .btn-join {
+            width: 100%;
+            padding: 13px;
+            background: rgb(22, 22, 173);
+            color: #fff;
+            border: none;
+            font-size: 15px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-family: inherit;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.2s transform 0.1s;
+        }
+
+        .btn-join:hover {
+            background: rgb(94, 94, 218);
+        }
+
+        .btn-join:active {
+            transform: scale(0.98);
+        }
+
+        .btn-join:disabled {
+            background: #c5cee0;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: #111;
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-size: 14px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>회원가입</h1>
+        <p class="subtitle">필수정보를 입력 후 가입을 완료하세요!</p>
+
+        <div class="field">
+            <label for="uid">아이디<span style="color: #aaa; font-weight: 400;">(4자 이상, 영문숫자)</span></label>
+            <input type="text" id="uid" placeholder="아이디입력">
+            <div id="uid-msg" class="msg info"></div>
+        </div>
+
+        <div class="field">
+            <label for="pw">비밀번호<span style="color: #aaa; font-weight: 400;">(6자 이상)</span></label>
+            <input type="password" id="pw" placeholder="비번 입력">
+            <div class="strength-wrap">
+                <div class="strength-bar" id="s1"></div>
+                <div class="strength-bar" id="s2"></div>
+                <div class="strength-bar" id="s3"></div>
+            </div>
+        </div>
+        <div id="pw-msg" class="msg info"></div>
+
+        <div class="field">
+            <label for="pw2">비번확인</label>
+            <input type="password" id="pw2" placeholder="비번 재입력">
+            <div id="pw2-msg" class="msg info"></div>
+        </div>
+        <button class="btn-join" id="join-btn" disabled>가입신청</button>
+    </div>
+    <div id="toast" class="toast">가입신청완료👌</div>
+
+    <script>
+        function validateId(val){
+            if(val.length === 0) return {ok: null, msg:""};
+            if(val.length < 4) return {}
+        }
+    </script>
+</body>
+
+</html>
