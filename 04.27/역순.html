@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습</title>
+</head>
+<body>
+    <script>
+        const notic = [
+            "시스템 점검 안내",
+
+            "신규 기능 업데이트",
+
+            "이벤트 당첨자 발표",
+
+            "개인정보 처리방침 개정",
+
+            "설문조사 참여 요청",
+        ];
+
+        //  //역순 거꾸로
+        // console.log("---최근 공지사항---");//5-1 = 4
+        // for(let i = notic.length -1; i >= 0; i--) {
+        //     console.log(`[공지]${notic[i]}`);
+        // }
+       
+        console.log("---최근 공지사항---");
+        for(let i = 0; i < notic.length; i++) {
+            console.log(`[공지]${notic[notic.length -1 -i]}`);
+        }
+    </script>
+</body>
+</html>

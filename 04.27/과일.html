@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+    body { font-family: sans-serif; text-align: center; padding-top: 50px; background-color: #fffbe6; }
+
+        .menu-card { 
+
+            background: white; display: inline-block; padding: 30px; 
+
+            border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+
+            border: 2px solid #ffd900;
+
+        }
+
+        h1 { color: #ff9900; margin-bottom: 10px; }
+
+        .info { font-size: 1.2rem; color: #555; margin: 20px 0; line-height: 2; }
+
+        b { color: #333; text-decoration: underline; }
+
+        .highlight { color: #e67e22; font-weight: bold; }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="menu-card">
+        <!-- <h1> 🍓오늘의 과일 식단</h1>
+        <div class="info" id="display"></div> -->
+
+        <!-- <h1>🍰 오늘의 디저트</h1>
+        <div id="display"></div> -->
+
+        <h1>🍽️ 오늘의 점심</h1>
+        <div id="display"></div>
+
+    </div>
+
+    <script>
+        // const fruits = ["사과", "블루베리", "바나나","딸기","배"];
+
+        // const firstFruit = fruits[0]; //첫번째 과일
+        // const totalCount = fruits.length; //배열 전체길이
+        // const lastFruit = fruits[fruits.length-1] //마지막 과일
+
+        // const displayDiv = document.getElementById("display");
+
+        // displayDiv.innerHTML = `오늘 준비 된 과일은 <span class = "highlight">${totalCount}개 </span> 입니다.<br>
+        // 첫번째 메뉴: <b>${firstFruit}</b><br>
+        // 마지막 추천 메뉴:<b>${lastFruit}</b> `;
+
+        // console.log("전체과일 리스트", fruits);
+
+
+         // 1. 배열 만들기
+        // const desserts = ['케이크', '마카롱', '푸딩', '도넛', '빙수'];
+
+        // 2. 요소 접근
+        // const firstDessert = desserts[0];
+        // const totalCount = desserts.length;
+        // const lastDessert = desserts[desserts.length - 1];
+
+        // 3. DOM 선택
+        // const displayDiv = document.getElementById('display');
+
+        // 4. 화면 출력
+        // displayDiv.innerHTML = `
+        //     오늘 준비된 디저트는 총 ${totalCount}개입니다.<br>
+        //     첫 번째 메뉴: ${firstDessert}<br>
+        //     마지막 추천 메뉴: ${lastDessert}
+        // `;
+
+        const lunch = ["쌀국수", "비빔밥", "짬뽕", "된장찌개", "스파게티"];
+
+        const firstLunch = lunch[0];
+        const totalCount = lunch.length;
+        const lastLunch = lunch[lunch.length - 1];
+
+        const displayDiv = document.getElementById('display');
+
+        displayDiv.innerHTML = `
+        오늘의 점심 메뉴 종류는 총${totalCount}개 입니다.<br>
+        첫번째 메뉴: ${firstLunch}<br>
+        마지막 추천 메뉴: ${lastLunch}`;
+
+        
+    </script>
+</body>
+</html>
