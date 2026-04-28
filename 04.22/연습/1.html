@@ -40,7 +40,7 @@
     </style>
 </head>
 <body>
-    <h1>결제 시스템🎀</h1>
+    <h1>결제 처리 시스템🎀</h1>
     <button id="pay-btn">결제하기</button>
     <div id="box">대기중...</div>
 
@@ -48,21 +48,21 @@
         const btn = document.querySelector("#pay-btn");
         const box = document.querySelector("#box");
 
-        function onComplete() {
-            box.textContent = "결제 완료!"
-            box.className = "done";
+        function onComplete(){
+            box.textContent = "결제 완료";
+            box.classList = "done";
         }
 
-        function process(callback) {
-            box.textContent = "결제 처리중";
-            box.className = "loading";
+        function process(callback){
+            box.textContent = "결제 처리중...";
+            box.classList = "loading";
 
             setTimeout(() => {
                 callback();
             },2000);
         };
 
-        btn.addEventListener("click", () =>{
+        btn.addEventListener("click", () => {
             process(onComplete);
         });
     </script>
