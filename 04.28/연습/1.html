@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>복습</title>
+</head>
+<body>
+    <script>
+        // for in 반복문
+        const todos = ["공부하기", "점심먹기", "병원가기"]
+
+        for (const i in todos){
+            console.log(`${i}번째 할 일: ${todos[i]}`);
+        }
+
+        // for of 반복문
+        for (const todo of todos){
+            console.log(`오늘의 할 일: ${todo}`);
+        }
+
+        // for 반복문
+        for(let i = 0; i < 5; i++){
+            console.log(`${i}번째 반복입니다.`)
+        }
+
+        let output = 0
+        for(let i = 1; i <= 100; i++){
+            output += i
+        }
+        console.log(`1~100까지 더하면 ${output}입니다.`)
+
+        // for 반복문 + 배열
+        const todos1 = ["공부하기", "점심먹기", "병원가기"]
+
+        for(let i = 0; i < todos1.length; i++){
+            console.log(`${i}번째 할일: ${todos1[i]}`)
+        }
+
+        for(let i = todos1.length -1; i >= 0; i--){
+            console.log(`${i}번째 할일: ${todos1[i]}`)
+        }
+    
+    </script>
+</body>
+</html>
