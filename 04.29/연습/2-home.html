@@ -4,20 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <style>
-        .tab-container { display: flex; gap: 10px; margin-bottom: 20px; }
-        .tab-button { 
-            padding: 10px 20px; cursor: pointer; border: 1px solid #ccc; background: #fff;
+    <style>
+        .tab-container{
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .tab-button{
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background: #fff;
             transition: 0.3s;
         }
-        /* 클릭된 버튼에 적용할 스타일 */
-        .tab-button.active { background: #007bff; color: white; border-color: #007bff; }
-        
-        .display-area { padding: 20px; border: 1px dashed #aaa; background: #f9f9f9; }
+        .tab-button.active{
+            background: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+        .display-area{
+            padding: 20px;
+            border: 1px dashed #aaa;
+            background: #f9f9f9;
+        }
     </style>
 </head>
 <body>
-    <h3>📂 카테고리 선택 (event.target 활용)</h3>
+    <h3>📂 카테고리 선택(event.target 활용)</h3>
     <div class="tab-container">
         <button class="tab-button active">전체</button>
         <button class="tab-button">디자인</button>
@@ -29,6 +42,6 @@
         현재 선택된 카테고리: <strong id="selected-category">전체</strong>
     </div>
 
-    <script src="script2.js"></script>
+    <script src="script-home2.js"></script>
 </body>
 </html>

@@ -4,9 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .banner{
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .cart-item{
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-close{
+            cursor: pointer;
+            background: #ff4d4d;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+        .empty-msg{
+            color: #999;
+            font-style: italic;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <div id="top=banner" class="banner">
+    <div id="top-banner" class="banner">
         <span>지금 가입하면 50%할인 쿠폰 증정!🎫</span>
         <button class="btn-close" onclick="removeBanner()">닫기</button>
     </div>
