@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>10일차 최종 프로젝트 - Todo List</title>
+    <style>
+      body {
+        font-family: "Pretendard", sans-serif;
+        background: #f4f7f6;
+        display: flex;
+        justify-content: center;
+        padding-top: 50px;
+      }
+      .todo-app {
+        width: 400px;
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      .input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        outline: none;
+      }
+      #add-btn {
+        padding: 10px 15px;
+        background: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      .todo-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        border-bottom: 1px solid #eee;
+        animation: fadeIn 0.3s ease;
+      }
+      .todo-item:last-child {
+        border-bottom: none;
+      }
+      .todo-item span {
+        flex: 1;
+        margin-right: 10px;
+      }
+
+      /* 삭제 버튼 스타일 */
+      .del-btn {
+        background: #ffeded;
+        color: #ff4d4d;
+        border: 1px solid #ff4d4d;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 12px;
+        transition: 0.2s;
+      }
+      .del-btn:hover {
+        background: #ff4d4d;
+        color: #fff;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+</head>
+<body>
+    <div class = "todo-app">
+        <h2>My Todo List</h2>
+        <div class="input-group">
+            <input type="text" id="todo-input" placeholder="오늘의 할일을 입력하세요">
+            <button id="add-btn">추가</button>
+        </div>   
+
+        <ul id="todo-list"></ul>
+    </div>
+    <script>
+        const input = document.querySelector("#todo-input");
+        const addBtn = document.querySelector("#add-btn");
+        const todoList = document.querySelector("#todo-list");
+
+        function addTodo(){
+            const text = input.value.trim();
+
+            if(text === ""){
+                alert("내용 입력하세요");
+                return;
+            }
+       
+
+        const li = document.createElement("li");
+        li.classList.add("todo-item");
+
+        li.innerHTML = `
+        <span>${text}</span>
+        <button class ="del-btn">삭제</button>
+        `;
+
+        todoList.appendChild(li);
+
+        input.value = "";
+        input.focus(); 
+    }
+    </script>
+</body>
+</html>
