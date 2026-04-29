@@ -16,7 +16,7 @@
 function removeBanner() {
 
     // 1. id가 top-banner인 요소 선택
-    const banner = document.querySelsctor('#top-banner');
+    const banner = document.querySelector('#top-banner');
     
     // 2. 요소가 존재하면 제거
     if (banner) {
@@ -31,7 +31,7 @@ function removeBanner() {
 ------------------------------------------------------------ */
 
 // 1. 모든 삭제 버튼 선택
-const deleteButtons = document.quserySelectorAll('.btn-delete');
+const deleteButtons = document.querySelectorAll('.btn-delete');
 
 // 2. 장바구니 리스트 선택
 const cartList = document.querySelector('#cart-list');

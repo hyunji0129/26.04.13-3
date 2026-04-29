@@ -12,4 +12,3 @@ tabs.forEach((tab) => {
         console.log("클릭된 요소:", clickedTarget);
     });
 });
-
