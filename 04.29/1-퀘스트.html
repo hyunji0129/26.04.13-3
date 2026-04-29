@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    /* ------------------------------------------------------------
+   [문제 1] 상단 배너 제거 기능 완성하기
+------------------------------------------------------------ */
+
+function removeBanner() {
+
+    // 1. id가 top-banner인 요소 선택
+    const banner = document.__________('#top-banner');
+    
+    // 2. 요소가 존재하면 제거
+    if (__________) {
+        banner.__________();
+    }
+}
+
+
+
+/* ------------------------------------------------------------
+   [문제 2] 장바구니 삭제 기능 완성하기
+------------------------------------------------------------ */
+
+// 1. 모든 삭제 버튼 선택
+const deleteButtons = document.________________('.btn-delete');
+
+// 2. 장바구니 리스트 선택
+const cartList = document.________________('#cart-list');
+
+// 3. 빈 메시지 요소 선택
+const emptyMsg = document.________________('#empty-cart');
+
+
+// 4. 각 버튼에 클릭 이벤트 추가
+deleteButtons.forEach(button => {
+
+    button.________________('click', function(event) {
+
+        // 5. 클릭된 버튼 기준으로 가장 가까운 .cart-item 찾기
+        const item = event.target.________________('.cart-item');
+        
+        // 6. 해당 요소 제거
+        if (item) {
+            item.________________();
+        }
+
+        // 7. 장바구니가 비어있으면 메시지 표시
+        if (cartList.__________.length === 0) {
+            emptyMsg.style.display = '__________';
+        }
+    });
+
+});
+</body>
+</html>
