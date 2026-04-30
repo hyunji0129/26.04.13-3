@@ -1,0 +1,35 @@
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<input id="input">
+<button id="add">추가</button>
+
+<ul id="list"></ul>
+
+<script>
+const input = document.________________('#input');
+const addBtn = document.________________('#add');
+const list = document.________________('#list');
+
+addBtn.addEventListener('click', () => {
+
+  const text = input.value.trim();
+  if (text === "") return;
+
+  const li = document.________________('li');
+  li.textContent = text;
+
+  list.________________(li);
+
+  setTimeout(() => {
+    li.________________();
+  }, ________);
+
+});
+</script>
+
+</body>
+</html>

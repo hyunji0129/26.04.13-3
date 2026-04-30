@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<input id="input">
+<button id="add">추가</button>
+
+<ul id="list"></ul>
+
+<script>
+const input = document.________________('#input');
+const addBtn = document.________________('#add');
+const list = document.________________('#list');
+
+addBtn.addEventListener('click', () => {
+
+  const text = input.value.________________();
+  if (text === "") return;
+
+  const li = document.________________('li');
+
+  li.innerHTML = `
+    <span>${text}</span>
+    <button class="del">삭제</button>
+  `;
+
+  list.________________(li);
+
+  input.value = "";
+});
+
+list.addEventListener('click', (e) => {
+
+  if (e.target.classList.________________('del')) {
+    const li = e.target.________________('li');
+
+    if (li) li.________________();
+  }
+
+});
+</script>
+
+</body>
+</html>

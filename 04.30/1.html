@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo List - 완료 기능 추가</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f7f6;
+      display: flex;
+      justify-content: center;
+      padding-top: 50px;
+    }
+
+    .app {
+      width: 400px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    input {
+      flex: 1;
+      padding: 8px;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .todo-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .done {
+      text-decoration: line-through;
+      color: #aaa;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="app">
+  <h3>Todo List (완료 기능)</h3>
+
+  <div class="input-group">
+    <input type="text" id="input">
+    <button id="add">추가</button>
+  </div>
+
+  <ul id="list"></ul>
+</div>
+
+<script>
+    const input = document.querySelector("#input");
+    const addBtn = document.querySelector("#add");
+    const list = document.querySelector("#list");
+
+    // function addTodo(){
+    //     const text = input.value.trim();
+
+    //     if (text === ""){
+    //         alert("입력하세요");
+    //         return;
+    //     }
+
+    //     const li = document.createElement("li");
+    //     li.classList.add("todo-item");
+
+    //     li.innerHTML = `
+    //         <span>${text}</span>
+    //         <div class="btn-group">
+    //             <button class="done-btn">완료</button>    
+    //             <button class="del-btn">삭제</button>    
+    //         </div>
+    //     `;
+
+    //     list.appendChild(li);
+
+    //     input.value = "";
+    //     input.focus();
+    // }
+
+    // list.addEventListener("click", function(e) {
+
+    //     if(e.target.classList.contains("del-btn")){
+    //         const li = e.target.closest(".todo-item");
+    //         if(li) li.remove();
+    //     }
+
+    //     if(e.target.classList.contains("done-btn")){
+    //         const li = e.target.closest(".todo-item");
+    //         const text = li.querySelector("span");
+    //         text.classList.toggle("done");
+    //     }
+    // });
+
+    // addBtn.addEventListener("click", addTodo);
+    // input.addEventListener("keypress", (e) => {
+    //     if(e.key === "Enter") addTodo();
+    // });
+//=========================================================================================================
+    // 문자열 공백 제거-trim()
+    // 요소 생성-createElment()
+    // 클래스 추가-add()
+    // 요소 추가-appendChild()
+    // 포커스-focus() 
+    // 삭제-remove()
+    // 상태토글-toggle()
+    // 부모찾기-closest()
+
+
+    function addTodo(){
+        const text = input.value.trim();
+
+        if(text === ""){
+            alert("입력하세요");
+            return;
+        }
+
+        const li = document.createElement("li");
+        li.classList.add("todo-item");
+
+        li.innerHTML = `
+            <span>${text}</span>
+            <div class="btn-group">
+                <button class="done-btn">완료</button>
+                <button class="del-btn">삭제</button>
+            </div>
+        `;
+
+        list.appendChild(li);
+
+        input.value = "";
+        input.focus();
+    }
+
+    list.addEventListener("click", function(e){
+
+        if(e.target.classList.contains("del-btn"))})
+
+    
+
+
+</script>
+
+
+</body>
+</html>

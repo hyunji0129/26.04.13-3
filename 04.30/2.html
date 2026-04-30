@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <hr>
+    <h1>제거 대상 문서객체</h1>
+    <hr>
+    <script>
+        //문서객체 생성할때
+        // document.createElement(문서 객체 이름);
+        // 부모객체.appendChild(자식객체)
+
+        // document.addEventListener("DOMContentLoaded", () => {
+        //     // 객체 생성 -> h1을 생성한다
+        //     const header = document.createElement("h1")
+            
+        //     // 태그 조작
+        //     header.textContent = "문서객체 생성하기"
+        //     header.setAttribute("data-custom", "사용자정의 속성")
+        //     header.style.color = "white"
+        //     header.style.background = "black"
+
+        //     document.body.appendChild(header)
+        // })
+
+
+        // 문서객체 제거하기
+        // 부모객체.removeChild(자식객체)
+        // 문서객체.parentNode.removeChild(문서객체)
+
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => {
+                const h1 = document.querySelector("h1")
+                h1.parentNode.removeChild(h1) // document.body.removeChild(h1)
+            },3000)
+        })
+    </script>
+</body>
+</html>
