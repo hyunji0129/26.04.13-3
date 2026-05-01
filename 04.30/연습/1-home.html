@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: sans-serif;
+            background: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+        }
+        .app{
+            width: 400px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .input-group{
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        input{
+            flex: 1;
+            padding: 8px;
+        }
+        button{
+            cursor: pointer;
+        }
+        .todo-item{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .done{
+            text-decoration: line-through;
+            color: #aaa;
+        }
+        .btn-group{
+            display: flex;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <h3>Todo List (완료 기능)</h3>
+
+        <div class="input-group">
+            <input type="text" id="input">
+            <button id="add">추가</button>
+        </div>
+
+        <ul id="list"></ul>
+    </div>
+
+
+</body>
+</html>
