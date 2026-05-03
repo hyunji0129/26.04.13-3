@@ -9,14 +9,14 @@
 <button id="btn">삭제하기</button>
 
 <script>
-const btn = document.________________('#btn');
+const btn = document.querySelector('#btn');
 
-btn.addEventListener('__________', () => {
+btn.addEventListener('click', () => {
 
-  const h1 = document.________________('h1');
+  const h1 = document.querySelector('h1');
 
   if (h1) {
-    h1.________________();
+    h1.remove();
   }
 
 });

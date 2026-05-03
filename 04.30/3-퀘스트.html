@@ -10,23 +10,23 @@
 <ul id="list"></ul>
 
 <script>
-const input = document.________________('#input');
-const addBtn = document.________________('#add');
-const list = document.________________('#list');
+const input = document.querySelector('#input');
+const addBtn = document.querySelector('#add');
+const list = document.querySelector('#list');
 
 addBtn.addEventListener('click', () => {
 
   const text = input.value.trim();
   if (text === "") return;
 
-  const li = document.________________('li');
+  const li = document.createElement('li');
   li.textContent = text;
 
-  list.________________(li);
+  list.appendChild(li);
 
   setTimeout(() => {
-    li.________________();
-  }, ________);
+    li.removeChild();
+  },5000);
 
 });
 </script>
