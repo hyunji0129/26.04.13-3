@@ -59,6 +59,54 @@
     </div>
 
     <script>
+        // const input = document.querySelector("#input");
+        // const addBtn = document.querySelector("#add");
+        // const list = document.querySelector("#list");
+
+        // function addTodo(){
+        //     const text = input.value.trim();
+
+        //     if(text === ""){
+        //         alert("입력하세요");
+        //         return;
+        //     }
+
+        //     const li = document.createElement("li");
+        //     li.classList.add("todo-item");
+
+        //     li.innerHTML = `
+        //         <span>${text}</span>
+        //         <div class ="btn-group">
+        //             <button class="done-btn">완료</button>    
+        //             <button class="del-btn">삭제</button>    
+        //         </div>
+        //     `;
+
+        //     list.appendChild(li);
+
+        //     input.value = "";
+        //     input.focus();
+        // }
+
+        // list.addEventListener("click", function(e){
+
+        //     if(e.target.classList,contains("del-btn")){
+        //         const li = e.target.closest(".todo-item");
+        //         if(li)li.remove();
+        //     }
+
+        //     if(e.target.classList.contains("done-btn")){
+        //         const li = e.target.closest(".todo-item");
+        //         const text = li.querySelector("span");
+        //         text.classList.toggle("done");
+        //     }
+        // });
+
+        // addBtn.addEventListener("click", addTodo);
+        // input.addEventListener("keypress",(e) => {
+        //     if(e.key === "Enter") addTodo();
+        // });
+
         const input = document.querySelector("#input");
         const addBtn = document.querySelector("#add");
         const list = document.querySelector("#list");
@@ -76,7 +124,7 @@
 
             li.innerHTML = `
                 <span>${text}</span>
-                <div class ="btn-group">
+                <div class="btn-group">
                     <button class="done-btn">완료</button>    
                     <button class="del-btn">삭제</button>    
                 </div>
@@ -85,27 +133,8 @@
             list.appendChild(li);
 
             input.value = "";
-            input.focus();
+            input.focus()
         }
-
-        list.addEventListener("click", function(e){
-
-            if(e.target.classList,contains("del-btn")){
-                const li = e.target.closest(".todo-item");
-                if(li)li.remove();
-            }
-
-            if(e.target.classList.contains("done-btn")){
-                const li = e.target.closest(".todo-item");
-                const text = li.querySelector("span");
-                text.classList.toggle("done");
-            }
-        });
-
-        addBtn.addEventListener("click", addTodo);
-        input.addEventListener("keypress",(e) => {
-            if(e.key === "Enter") addTodo();
-        });
     </script>
 
 </body>
