@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,16 +14,28 @@
 
     <!-- <p> 5 + 10 = <span id="result">?</span></p> -->
 
-    <div id="timer-box" style="background: green;">
+    <!-- <div id="timer-box" style="background: green;">
         3초 뒤에 사라짐
-    </div>
+    </div> -->
+
+    <!-- <button onclick="hello()">인사하기</button> -->
+     <button id="anon-btn">익명함수 실행</button>
 
     <script>
         // function hello(){
         //     alert("안녕");
         // }
+        // function hello(){
+        //     alert("안녕");
+        // }
 
 
+        const showLog = function(){
+            console.log("이름은 없지만 변수 통해 실행된다.");
+        };
+
+        document.querySelector("#anon-btn").addEventListener
+        ("click", showLog);
         // const showLog = function(){
         //     console.log("이름은 없지만 변수 통해 실행된다.");
         // };
@@ -47,10 +59,10 @@
         // resultEl.textContent = sum;
 
 
-        setTimeout(() => {
-            const boxEl = document.querySelector("#timer-box");
-            boxEl.style.display = "none";
-        },3000);
+        // setTimeout(() => {
+        //     const boxEl = document.querySelector("#timer-box");
+        //     boxEl.style.display = "none";
+        // },3000);
     </script>
 </body>
 </html>
