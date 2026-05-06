@@ -12,12 +12,12 @@
 </ul>
 
 <script>
-const list = document.querySelectorAll('#list');
+const list = document.querySelector('#list');
 
 list.addEventListener('click', (e) => {
 
-  if (e.target.contains === 'LI') {
-    e.target.closest();
+  if (e.target.tagName === 'LI') {
+    e.target.remove();
   }
 
 });
