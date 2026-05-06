@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>인터랙션 심화</title>
+    <style>
+        :root {
+            --primary: #3D1F8F;
+            --accent: #FF6B2B;
+            --white: #ffffff;
+            --transition: 0.3s ease;
+        }
+
+        body { margin: 0; font-family: sans-serif; height: 300vh; background: #f5f5f5; }
+
+        /* 헤더 스타일 */
+        #header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 20px 0; transition: var(--transition);
+            display: flex; justify-content: space-around; align-items: center;
+            background: rgba(255,255,255,0.1); color: #333;
+        }
+
+        /* [미션1] 스크롤 시 로고 색상 변경을 위한 클래스 */
+        #header.scrolled {
+            background: var(--primary);
+            color: white;
+        }
+        #header.scrolled #logo {
+            color: var(--accent); /* 로고만 오렌지색으로 */
+        }
+
+        #logo { font-size: 24px; font-weight: bold; transition: var(--transition); }
+
+        /* 햄버거 버튼 */
+        .hamburger {
+            cursor: pointer; background: none; border: none; z-index: 1100;
+        }
+        .hamburger span {
+            display: block; width: 25px; height: 3px; background: #333;
+            margin: 5px; transition: var(--transition);
+        }
+        #header.scrolled .hamburger span { background: white; }
+
+        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* 모바일 메뉴창 */
+        .nav-mobile {
+            position: fixed; top: 0; right: -260px; width: 260px; height: 100vh;
+            background: var(--primary); transition: var(--transition);
+            padding-top: 80px; z-index: 1050;
+        }
+        .nav-mobile.open { right: 0; }
+        .nav-mobile a { display: block; color: white; padding: 20px; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+        /* 오버레이 */
+        .overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+            display: none; z-index: 1040;
+        }
+        .overlay.show { display: block; }
+    </style>
+</head>
+<body>
+    
+    <header id="header">
+        <div id="logo">BREWVENTI</div>
+        <button class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <nav class="nav-mobile" id="navMobile">
+        <a href="#section1">SERVICE</a>
+        <a href="#section2">PORTFOLIO</a>
+        <a href="#section3">CONTACT</a>
+    </nav>
+
+    <div class="overlay" id="overlay"></div>
+
+    <section style="padding: 150px 20px;">
+        <h2>미션 1: 스크롤을 100px 내려보세요.</h2>
+        <p>로고 색상이 오렌지색으로 변해야 합니다.</p>
+        <div style="height: 500px;"></div>
+        <h2>미션 2: 메뉴를 열고 링크를 클릭해보세요.</h2>
+        <p>이동과 동시에 메뉴창이 자동으로 닫혀야 합니다.</p>
+    </section>
+
+    <script>
+        const header = document.querySelector("#header");
+        const hamburger = document.querySelector("#hamburger");
+        const navMobile = document.querySelector("#navMobile");
+        const overlay = document.querySelector("#overlay");
+
+        //모든 링크 선택
+        const navLinks = document.querySelectorAll(".nav-mobile a");
+
+        //닫기 기능 함수화
+        function closeMenu(){
+            hamburger.classList.remove("active");
+            navMobile.classList.remove("open");
+            overlay.classList.remove("show");
+        }
+
+        //스크롤 감지
+        window.addEventListener("scroll", () => {
+            if(window.scrollY > 100){
+                header.classList.add("scrolled");
+            }else{
+                header.classList.remove("scrolled");
+            }
+        })
+
+        //햄버거 클릭
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMobile.classList.toggle("open");
+            overlay.classList.toggle("show");
+        })
+
+        //오버레이 클릭
+        overlay.addEventListener("click", closeMenu);
+
+        //링크 클릭 시 메뉴 닫기
+        navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                closeMenu();
+            })
+        });
+    </script>
+</body>
+</html>
