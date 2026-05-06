@@ -1306,17 +1306,17 @@
        [JS-1] 헤더 — 스크롤 감지
        스크롤을 내리면 헤더에 배경색 추가
        ============================================= */
-    const ----
+    const header = document.querySelector("#header");
 
     // scroll 이벤트: 스크롤할 때마다 실행됨
-    window.----('scroll', () ---- {
+    window.addEventListener('scroll', () => {
 
-      if (window.---- > 50) {
+      if (window.scrollY > 50) {
         // 50px 이상 스크롤 → scrolled 클래스 추가 (CSS에서 배경 생김)
-        header.classList.----('scrolled');
+        header.classList.add('scrolled');
       } else {
         // 최상단 → scrolled 클래스 제거
-        header.classList.----('scrolled');
+        header.classList.remove('scrolled');
       }
 
     });
@@ -1331,7 +1331,7 @@
     const overlayMobile = document.querySelector('#overlayMobile');
 
     // 햄버거 버튼 클릭 시
-    hamburger.addEventListener('click', () => {
+      hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');  // X 모양으로 전환
       navMobile.classList.toggle('open');    // 메뉴 슬라이드 인
       overlayMobile.classList.toggle('show'); // 배경 오버레이 표시
