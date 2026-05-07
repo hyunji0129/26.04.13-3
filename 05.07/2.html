@@ -39,12 +39,17 @@
 
         // filterItems("all");
         function filterItems(type) {
+            //데이터 필터링
             const filtered = type === "all" ? data : data.filter(item => item.type === type);
 
+            //화면 렌더링
             display.innerHTML = filtered.map(item => `
                 <div class = "item">${item.name} ${item.type}</div>
             `).join("");
         }
+
+        //초기 실행
+        filterItems("all");
     </script>
 </body>
 </html>
