@@ -133,48 +133,59 @@
         // });
 
     //퀴즈==============================================================================
-        const header = document.querySelector('#header');
-        const hamburger = document.querySelector('#hamburger');
-        const navMobile = document.querySelector('#navMobile');
-        const overlay = document.querySelector('#overlay');
+        // const header = document.querySelector('#header');
+        // const hamburger = document.querySelector('#hamburger');
+        // const navMobile = document.querySelector('#navMobile');
+        // const overlay = document.querySelector('#overlay');
         
-        // [미션2용] 모든 링크 선택
-        const navLinks = document.querySelectorAll('.nav-mobile a');
+        // // [미션2용] 모든 링크 선택
+        // const navLinks = document.querySelectorAll('.nav-mobile a');
 
-        // 닫기 기능 함수화 (재사용)
-        function closeMenu() {
-            hamburger.classList.remove('active');
-            navMobile.classList.remove('open');
-            overlay.classList.remove('show');
-        }
+        // // 닫기 기능 함수화 (재사용)
+        // function closeMenu() {
+        //     hamburger.classList.remove('active');
+        //     navMobile.classList.remove('open');
+        //     overlay.classList.remove('show');
+        // }
 
-        // 1. 스크롤 감지 로직
-        window.addEventListener('scroll', () => {
-            // 여기에 코드를 작성하세요 (100px 기준)
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+        // // 1. 스크롤 감지 로직
+        // window.addEventListener('scroll', () => {
+        //     // 여기에 코드를 작성하세요 (100px 기준)
+        //     if (window.scrollY > 100) {
+        //         header.classList.add('scrolled');
+        //     } else {
+        //         header.classList.remove('scrolled');
+        //     }
+        // });
 
-        // 2. 햄버거 클릭 로직
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMobile.classList.toggle('open');
-            overlay.classList.toggle('show');
-        });
+        // // 2. 햄버거 클릭 로직
+        // hamburger.addEventListener('click', () => {
+        //     hamburger.classList.toggle('active');
+        //     navMobile.classList.toggle('open');
+        //     overlay.classList.toggle('show');
+        // });
 
-        // 3. 오버레이 클릭 시 닫기
-        overlay.addEventListener('click', closeMenu);
+        // // 3. 오버레이 클릭 시 닫기
+        // overlay.addEventListener('click', closeMenu);
 
-        // 4. [미션2] 링크 클릭 시 메뉴 닫기 로직을 완성하세요
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                // 여기에 코드를 작성하세요
-                closeMenu();
-            });
-        });    
+        // // 4. [미션2] 링크 클릭 시 메뉴 닫기 로직을 완성하세요
+        // navLinks.forEach(link => {
+        //     link.addEventListener('click', () => {
+        //         // 여기에 코드를 작성하세요
+        //         closeMenu();
+        //     });
+        // });  
+    //=========================================================  
+    const header = document.querySelector("#header");
+    const hamburger = document.querySelector("#hamburger");
+    const navMobile = document.querySelector("#mavMobile");
+    const overlay = document.querySelector("#overlay");
+
+    const navLinks = document.querySelectorAll(".nav-mobile a");
+
+    function closeMenu(){
+        
+    }
     </script>
 </body>
 </html>

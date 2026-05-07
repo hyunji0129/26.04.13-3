@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <style>
+        .btn-group { margin-bottom: 20px; }
+        .item { padding: 10px; border-bottom: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div class="btn-group">
+        <button onclick="filterItems('all')">전체</button>
+        <button onclick="filterItems('coffee')">커피</button>
+        <button onclick="filterItems('tea')">차</button>
+    </div>
+    <div id="display"></div>
+
+    <script>
+        // const data = [
+        //     {name: "아메리카노", type: "coffee"},
+        //     {name: "아인슈페너", type: "coffee"},
+        //     {name: "녹차", type: "tea"},
+        // ];
+        const data = [
+            {name: "아메리카노", type: "coffee"},
+            {name: "아인슈페너", type: "coffee"},
+            {name: "녹차", type: "tea"},
+        ];
+
+        // const display = document.querySelector("#display");
+        const display = document.querySelector("#display");
+
+        // function filterItems(type) {
+        //     const filtered = type === "all" ? data : data.filter(item => item.type === type);
+
+        //     display.innerHTML = filtered.map(item => `
+        //         <div class ="item">${item.name}(${item.type})</div>
+        //     `).join("");
+        // }
+
+        // filterItems("all");
+        function filterItems(type) {
+            const filtered = type === "all" ? data : data.filter(item => item.type === type);
+
+            display.innerHTML = filtered.map(item => `
+                <div class = "item">${item.name} ${item.type}</div>
+            `).join("");
+        }
+    </script>
+</body>
+</html>
