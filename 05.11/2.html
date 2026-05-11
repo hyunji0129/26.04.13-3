@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <style>
+        .spacer { height: 120vh; } /* 스크롤 공간 확보 */
+        .box { background: #FF6B2B; color: white; padding: 50px; text-align: center; opacity: 0; transition: 1s; }
+        .box.visible { opacity: 1; transform: scale(1.1); }
+    </style>
+</head>
+<body>
+    <div class="spacer">스크롤을 깊게 내려보세요!</div>
+    <div class="box" id="target">화면에 절반(50%) 이상 들어오면 커집니다!</div>
+
+    <script>
+    //    const target = document.querySelector("#target"); 
+        const target = document.querySelector("#target");
+        
+        // 두 번째 인자로 옵션 객체를 전달합니다.
+        const observer = new IntersectionObserver( (entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, { threshold: 0.5});    // 50% 이상 보일 때 실행!
+
+        observer.observe(target);
+        
+
+    </script>
+</body>
+    
+</body>
+</html>

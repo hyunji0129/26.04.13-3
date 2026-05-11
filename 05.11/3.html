@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <style>
+        .modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; }
+        .modal-box { background: white; padding: 40px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div class="modal-bg" id="bg">
+        <div class="modal-box" id="box">
+            <h2>모달 내용입니다.</h2>
+            <p>이 흰 박스를 눌러도 창이 닫히지 않아야 정상입니다!</p>
+        </div>
+    </div>
+
+    <script>
+        const bg = document.querySelector('#bg');
+        const box = document.querySelector('#box');
+
+        // 배경을 누르면 닫힘
+        bg.addEventListener('click', () => {
+            bg.style.display = 'none';
+        });
+
+
+        // 박스를 누르면 클릭 이벤트가 배경으로 퍼지는 것을 '차단'함!
+        box.addEventListener('click', (e) => {
+            e.stopPropagation(); 
+        })
+    </script>
+</body>
+</html>

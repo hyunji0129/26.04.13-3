@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const menuData = [
+            { name: '아메리카노',     category: 'coffee',   price:'3,500원', img: 'https://picsum.photos/id/431/400/400'},
+            { name: '카페라떼',       category: 'coffee',   price: '4,500원', img: 'https://picsum.photos/id/425/400/400' },
+            { name: '바닐라라떼',     category: 'coffee',   price: '5,000원', img: 'https://picsum.photos/id/429/400/400' },
+            { name: '딸기 스무디',    category: 'smoothie', price: '5,500원', img: 'https://picsum.photos/id/1080/400/400' },
+            { name: '망고 스무디',    category: 'smoothie', price: '5,500원', img: 'https://picsum.photos/id/1084/400/400' },
+            { name: '청포도 에이드',  category: 'tea',      price: '4,800원', img: 'https://picsum.photos/id/493/400/400' },
+            { name: '유자 티에이드',  category: 'tea',      price: '4,800원', img: 'https://picsum.photos/id/488/400/400' },
+            { name: '블루베리 스무디',category: 'smoothie', price: '5,500원', img: 'https://picsum.photos/id/1082/400/400' },
+        ];
+
+        const menuGrid = document.querySelector("#menuGrid");
+        const tabBtns = document.querySelectorAll(".tab-btn");
+
+        function renderMenu(category) {
+            
+            const filtered = category === 'all'
+            ? menuData 
+            : menuData.filter(item => item.category === category);
+
+            let html = '';
+            for(const item of filtered){
+                html += `
+                <div class = "menu-card">
+                    <img class = "card-img" src="${item.img}" alt="${item.name}" />
+                    <div class = "card-body">
+                        <p class ="card-category">${item.category}</p>
+                        <p class ="card-name">${item.name}</p>
+                        <p class ="card-price">${item.price}</p>
+                    </div>
+                </div>
+                `;
+            }
+
+            menuGrid.innerHTML = html;
+        }
+
+        renderMenu('all');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const category = btn.dataset.category;
+                renderMenu(category);
+            });
+        });
+
+        function filterMenu(category) {
+            tabBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.category === category);
+        });
+
+        renderMenu(category);
+        }
+    </script>
+</body>
+</html>

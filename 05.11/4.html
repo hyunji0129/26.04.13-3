@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <style>
+        /* (디자인 생략) 스크롤 애니메이션 클래스 */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: 0.8s; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        /* 모달 클래스 */
+        .modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; z-index: 1000; align-items: center; justify-content: center;}
+        .modal-bg.active { display: flex; }
+        .modal-box { background: white; padding: 30px; width: 300px; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <h2 class="fade-in">프리미엄 커피 예약</h2>
+    <button class="fade-in" id="openBtn">예약하기</button>
+
+    <div class="modal-bg" id="modalBg">
+        <div class="modal-box" id="modalBox">
+            <h2>예약 정보 입력</h2>
+            <p>(내일 이곳에 폼이 들어갑니다)</p>
+            <button id="closeBtn">닫기</button>
+        </div>
+    </div>
+
+    <script>
+        // 1. 스크롤 페이드인 (옵션 적용)
+        const fadeEls = document.querySelectorAll('.fade-in'); 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, {threshold: 0.2}); 
+
+        fadeEls.forEach(el => observer.observe(el));
+
+
+        // 2. 모달 제어 및 버블링 차단
+        const openBtn = document.querySelector('#openBtn');
+        const modalBg = document.querySelector('#modalBg');
+        const modalBox = document.querySelector('#modalBox');
+        const closeBtn = document.querySelector('#closeBtn');
+
+       
+        // 배경 클릭 시 닫기
+        // openBtn.addEventListener('click', () => modalBg.classList.add('active'));
+        // closeBtn.addEventListener('click', () => modalBg.classList.remove('active'));
+        openBtn.addEventListener('click', () => modalBg.classList.add('active'));
+        closeBtn.addEventListener('click', () => modalBg.classList.remove('active'));
+        modalBg.addEventListener('click', () => modalBg.classList.remove('active'));
+
+        
+        // 핵심: 내부 박스 클릭 시 닫히지 않게 이벤트 전파 막기
+        modalBox.addEventListener('click', (e) => {
+            e.stopPropagation(); 
+        });
+
+        
+
+    </script>
+</body>
+</html>

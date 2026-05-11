@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<body>
+    <input type="text" id="testInput" placeholder="3글자 이상 입력하세요">
+    <button id="testBtn" disabled>확인</button> <script>
+        const input = document.querySelector('#testInput');
+        const btn = document.querySelector('#testBtn');
+
+        // 타이핑 할 때마다 실시간으로 검사!
+        input.addEventListener('input', (e) => {
+            const textLength = e.target.value.length;
+            
+            if (textLength >= 3) {
+                btn.disabled = false; // 3글자 이상이면 버튼 활성화!
+            } else {
+                btn.disabled = true;  // 아니면 다시 비활성화!
+            }
+        });
+    </script>
+</body>
+</html>

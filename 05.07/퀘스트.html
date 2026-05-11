@@ -1457,22 +1457,33 @@
        ============================================= */
 
     // 관찰할 대상들 선택
-    const fadeEls = document.querySelectorAll('.fade-in');
+    // const fadeEls = document.querySelectorAll('.fade-in');
+       const fadeEls = document.querySelectorAll('.fade-in');
 
     // IntersectionObserver 생성
-    const observer = new IntersectionObserver((entries) => {
+    // const observer = new IntersectionObserver((entries) => {
 
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // 화면에 보이면 visible 클래스 추가 (CSS에서 페이드인)
-          entry.target.classList.add('visible');
-        }
-      });
+    //   entries.forEach(entry => {
+    //     if (entry.isIntersecting) {
+    //       // 화면에 보이면 visible 클래스 추가 (CSS에서 페이드인)
+    //       entry.target.classList.add('visible');
+    //     }
+    //   });
 
-    }, { threshold: 0.2 }); // 20% 이상 보일 때 실행
+    // }, { threshold: 0.2 }); // 20% 이상 보일 때 실행
+      
+      const observe = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+          }
+        });
+      },{ threshold: 0.2}); 
 
     // 모든 대상에 옵저버 연결
-    fadeEls.forEach(el => observer.observe(el));
+    // fadeEls.forEach(el => observer.observe(el));
+        fadeEls.forEach(el => observer.observe(el));
 
 
     /* =============================================
