@@ -1,0 +1,80 @@
+```jsx
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <style>
+        .form-msg { font-size: 12px; margin-top: -5px; margin-bottom: 15px; display: block;}
+        .form-msg.error { color: red; }
+        .form-msg.success { color: green; }
+        .invalid { border: 2px solid red; }
+        .valid { border: 2px solid green; }
+        button:disabled { background: #ccc; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+    <input type="text" id="r-name" placeholder="이름 (2자 이상)">
+    <span id="name-msg" class="form-msg"></span>
+
+    <input type="tel" id="r-phone" placeholder="010-0000-0000">
+    <span id="phone-msg" class="form-msg"></span>
+
+    <button id="submitBtn" disabled>예약 완료</button>
+
+    <script>
+        const nameInput = document.querySelector('#r-name');
+        const phoneInput = document.querySelector('#r-phone');
+        const nameMsg = document.querySelector('#name-msg');
+        const phoneMsg = document.querySelector('#phone-msg');
+        const submitBtn = document.querySelector('#submitBtn');
+
+        // 1. 이름 검사 함수 (객체 반환)
+        function validateName(value) {
+            if (value.length === 0) return { ok: null, msg: '' };
+            if (value.length < 2) return { ok: false, msg: '이름을 2자 이상 입력해 주세요.' };
+            return { ok:true, msg: '확인되었습니다.' };
+        }
+
+        // 2. 전화번호 검사 함수 (정규식, 객체 반환)
+        function validatePhone(value) {
+            if (value.length === 0) return { ok: null, msg: '' };
+            const regex = /^010-\d{4}-\d{4}$/; // 010-0000-0000 형식
+            if (!regex.test(value)) return { ok: false, msg: '010-0000-0000 형식으로 입력해 주세요.' };
+            return { ok: true, msg: '확인되었습니다.' };
+        }
+
+        // 3. UI 업데이트 함수 (에러 메시지 및 인풋박스 색상 변경)
+        function updateFormUI(inputEl, msgEl, result) {
+            if (result.ok === null) {
+                inputEl.className = '';
+                msgEl.className = 'form-msg';
+                msgEl.textContent = '';
+                return;
+            }
+            inputEl.className = result.ok ? 'valid' : 'invalid';
+            msgEl.className = result.ok ? 'form-msg success' : 'form-msg error';
+            msgEl.textContent = result.msg;
+        }
+
+        // 4. 두 항목이 모두 ok일 때만 제출 버튼 활성화
+        function checkSubmitable() {
+            const nameOk = validateName(nameInput.value).ok;
+            const phoneOk = validatePhone(phoneInput.value).ok;
+            submitBtn.disabled = !(nameOk && phoneOk); // 둘 다 참일때 disabled를 false로
+        }
+
+        // 5. 사용자가 타이핑 할 때마다 실시간 검사 실행 (input 이벤트)
+        nameInput.addEventListener('input', (e) => {
+            const result = validateName(e.target.value);
+            updateFormUI(nameInput, nameMsg, result);
+            checkSubmitable();
+        });
+
+        phoneInput.addEventListener('input', (e) => {
+            const result = validatePhone(e.target.value);
+            updateFormUI(phoneInput, phoneMsg, result);
+            checkSubmitable();
+        });
+    </script>
+</body>
+</html>
+```

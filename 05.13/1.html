@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        .result-box { margin-top: 15px; padding: 15px; background: #f0f0f0; border-radius: 8px; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <h3>이름 유효성 검사 (객체 반환 테스트)</h3>
+    <input type="text" id="nameInput" value="김" placeholder="이름 입력">
+    <button id="checkBtn">검사 실행</button>
+    
+    <div class="result-box" id="resultBox">
+        이곳에 검사 결과(객체)가 출력됩니다.
+    </div>
+
+    <script>
+        // 1. 글자 수를 검사하고 '상태'와 '메시지'를 세트로 묶어서 반환하는 함수
+        function validateName(value){
+            if(value.length < 2){
+                return {ok: false, msg: "2글자 이상 입력하세요"};
+            }
+            return {ok: true, msg: "오케이"};
+        }
+       
+        const checkBtn = document.querySelector('#checkBtn');
+        const nameInput = document.querySelector('#nameInput');
+        const resultBox = document.querySelector('#resultBox');
+
+        // 2. 버튼 클릭 시 함수 사용해보기
+        checkBtn.addEventListener('click', () => {
+            // 입력창의 값을 validateName 함수에 넣고, 그 결과(객체)를 result 변수에 담습니다.
+            const result = validateName(nameInput.value);
+       
+    
+        // 3. 반환받은 객체 안의 데이터(result.ok, result.msg)를 화면에 출력합니다.
+        resultBox.innerHTML = `
+            상태(ok) : <strong>${result.ok}</strong> <br>
+            메세지(msg) : <strong>${result.msg}</strong>
+        `;
+        
+        
+        // 상태에 따라 글자 색상 변경 (true면 초록색, false면 빨간색)
+          resultBox.style.color = result.ok ? "green" : "red";
+                                 // 조건         참       거짓
+        });  
+    </script>
+</body>
+</html>
