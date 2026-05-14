@@ -52,7 +52,14 @@
 
         function filterItems(type){
             
+            const filtered = type === "all" ? data : data.filter(item => item.type === type);
+
+            display.innerHTML = filtered.map(item => `
+                <div class = "item">${item.name} ${item.type}</div>
+            `).join("");
         }
+
+        filterItems("all");
     </script>
 </body>
 </html>
